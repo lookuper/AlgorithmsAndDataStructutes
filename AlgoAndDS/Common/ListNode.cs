@@ -8,10 +8,10 @@ namespace Common
 {
     public class ListNode
     {
-        public Object Data { get; set; }
+        public Int32 Data { get; set; }
         public ListNode Next { get; set; }
 
-        public ListNode(Object data, ListNode next = null)
+        public ListNode(Int32 data, ListNode next = null)
         {
             Data = data;
         }

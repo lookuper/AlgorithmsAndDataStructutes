@@ -29,6 +29,14 @@ namespace Host
             };
             int k = 0;
             TreeListNode kNode = TreeStuff.KthNode(tree, ref k);
+
+            // find first duplicate in array with values n-1
+            var array = new[] { 2, 3, 1, 0, 2, 5, 3 };
+            int duplicate = ArrayStuff.FirstDuplicate(array);
+
+            // sort linked list
+            var notSortedList = new ListNode(2) { Next = new ListNode(1) { Next = new ListNode(3) } };
+            LinkedListStuff.Sort(notSortedList);
         }
     }
 }
