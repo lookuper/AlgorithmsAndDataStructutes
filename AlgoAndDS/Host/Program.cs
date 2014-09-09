@@ -36,7 +36,18 @@ namespace Host
 
             // sort linked list
             var notSortedList = new ListNode(2) { Next = new ListNode(1) { Next = new ListNode(3) } };
-            LinkedListStuff.Sort(notSortedList);
+            //LinkedListStuff.Sort(notSortedList);
+
+            // minimum in sorted and rotated array
+            array = new int[] { 3, 4, 1, 2 };
+            int min = ArrayStuff.MinimumInSortedAndRotatedArray(array, 0, array.Length);
+
+            // find missing number in array without duplicate
+            array = new int[] { 1, 2, 3, 4, 5, 7, 8 };
+            int missing = ArrayStuff.MissingNumber(array);
+
+            // check if binary tree is BST
+            bool isBst = TreeStuff.IsBST(tree);
         }
     }
 }

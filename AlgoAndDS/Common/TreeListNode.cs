@@ -8,7 +8,7 @@ namespace Common
 {
     public class TreeListNode
     {
-        public Object Data { get; set; }
+        public Int32 Data { get; set; }
         public TreeListNode Left { get; set; }
         public TreeListNode Right { get; set; }
 
