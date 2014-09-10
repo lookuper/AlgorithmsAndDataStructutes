@@ -69,5 +69,30 @@ namespace Host
 
             return total;
         }
+
+        internal static void DeutscheFlagSort(int[] array)
+        {
+            int lo = 0;
+            int high = array.Length - 1;
+            int mid = 0;
+
+            while (mid <= high)
+            {
+                switch (array[mid])
+                {
+                    case 0:
+                        Generic.Swap(ref array[lo++], ref array[mid++]);
+                        break;
+                    case 1:
+                        mid++;
+                        break;
+                    case 2:
+                        Generic.Swap(ref array[mid], ref array[high--]);
+                        break;
+                    default:
+                        throw new ArgumentException();
+                }
+            }
+        }
     }
 }

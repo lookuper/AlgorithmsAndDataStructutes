@@ -48,6 +48,13 @@ namespace Host
 
             // check if binary tree is BST
             bool isBst = TreeStuff.IsBST(tree);
+
+            // find first non repeating character in string
+            var output = StringStuff.FirstNonRepeatingChar("abcdacb");
+
+            // sort array of 1 0 2 into 0 1 2
+            array = new int[] { 1, 2, 0, 1, 2 };
+            ArrayStuff.DeutscheFlagSort(array);
         }
     }
 }
