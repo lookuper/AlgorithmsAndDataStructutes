@@ -55,6 +55,8 @@ namespace Host
             // sort array of 1 0 2 into 0 1 2
             array = new int[] { 1, 2, 0, 1, 2 };
             ArrayStuff.DeutscheFlagSort(array);
+
+            output = StringStuff.DivisionToString(10, 4);
         }
     }
 }
