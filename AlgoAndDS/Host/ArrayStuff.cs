@@ -94,5 +94,57 @@ namespace Host
                 }
             }
         }
+
+        internal static int OccurensInSortedArray(int[] array, int x)
+        {
+            int start = 0;
+            int end = 0;
+            start = First(array, 0, array.Length-1, x);
+            
+            if (start == -1)
+                throw new ArgumentException("No such value in array");
+
+            end = Last(array, 0, array.Length-1, x);
+
+            return end - start + 1;
+        }
+
+        private static int First(int[] array, int low, int high, int x)
+        {
+            if (high >= low)
+            {
+                int mid = (low + high) / 2;
+                if (mid == 0 || x > array[mid - 1] && array[mid] == x)
+                    return mid;
+                else
+                {
+                    if (x > array[mid])
+                        return First(array, mid + 1, high, x);
+                    else
+                        return First(array, low, mid - 1, x);
+                }
+            }
+
+            return -1;
+        }
+
+        private static int Last(int[] array, int low, int high, int x)
+        {
+            if (high > low)
+            {
+                int mid = (low + high) / 2;
+                if (mid == array.Length - 1 || x < array[mid + 1] && array[mid] == x)
+                    return mid;
+                else
+                {
+                    if (x < array[mid])
+                        return Last(array, low, mid - 1, x);
+                    else
+                        return Last(array, mid + 1, high, x);
+                }
+            }
+
+            return low;
+        }
     }
 }

@@ -56,7 +56,12 @@ namespace Host
             array = new int[] { 1, 2, 0, 1, 2 };
             ArrayStuff.DeutscheFlagSort(array);
 
+            // division two numbers to string
             output = StringStuff.DivisionToString(10, 4);
+
+            // count number of occurens in sorted array
+            array = new int[] {0, 1, 2, 2, 2, 3, 4, 5};
+            int count = ArrayStuff.OccurensInSortedArray(array, 2);
         }
     }
 }

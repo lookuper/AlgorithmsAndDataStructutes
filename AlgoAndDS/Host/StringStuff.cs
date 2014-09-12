@@ -47,6 +47,14 @@ namespace Host
             sb.Append(".");
 
             int counter = -1;
+            while (after < num2)
+            {
+                after = after * 10;
+                counter++;
+                if (counter > 0)
+                    sb.Append("0");
+            }
+
             int pre = after;
             while (after != 0)
             {
