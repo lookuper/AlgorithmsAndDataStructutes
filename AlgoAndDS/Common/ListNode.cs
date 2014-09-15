@@ -10,6 +10,7 @@ namespace Common
     {
         public Int32 Data { get; set; }
         public ListNode Next { get; set; }
+        public ListNode Child { get; set; }
 
         public ListNode(Int32 data, ListNode next = null)
         {

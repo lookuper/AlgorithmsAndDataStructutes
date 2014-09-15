@@ -62,6 +62,9 @@ namespace Host
             // count number of occurens in sorted array
             array = new int[] {0, 1, 2, 2, 2, 3, 4, 5};
             int count = ArrayStuff.OccurensInSortedArray(array, 2);
+
+            var flattenList = new ListNode(1) { Child = new ListNode(5), Next = new ListNode(2) { Child = new ListNode(6){Child = new ListNode(8), Next = new ListNode(7)}, Next = new ListNode(3) } };
+            LinkedListStuff.FlattenList(flattenList);
         }
     }
 }
