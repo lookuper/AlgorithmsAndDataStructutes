@@ -63,8 +63,15 @@ namespace Host
             array = new int[] {0, 1, 2, 2, 2, 3, 4, 5};
             int count = ArrayStuff.OccurensInSortedArray(array, 2);
 
+            // convert flatten list to one demensional list
             var flattenList = new ListNode(1) { Child = new ListNode(5), Next = new ListNode(2) { Child = new ListNode(6){Child = new ListNode(8), Next = new ListNode(7)}, Next = new ListNode(3) } };
             LinkedListStuff.FlattenList(flattenList);
+
+            // convert tree to linked list
+            //var fromTree = TreeStuff.ConvertToLinkedList(tree);
+
+            // maximum of all subarray of size k
+            ArrayStuff.PrintMaxSubArraysSizeK(new[] { 1, 2, 3, 4, 5, 6}, 3);
         }
     }
 }

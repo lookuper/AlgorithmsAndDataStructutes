@@ -146,5 +146,20 @@ namespace Host
 
             return low;
         }
+
+        internal static void PrintMaxSubArraysSizeK(int[] input, int k)
+        {
+            int j, max;
+            for (int i = 0; i < input.Length-k; i++)
+            {
+                max = input[i];
+                for (j = 0; j < k; j++)
+                {
+                    if (input[i + j] > max)
+                        max = input[i + j];
+                }
+                Console.WriteLine(max);
+            }
+        }
     }
 }

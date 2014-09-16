@@ -49,5 +49,39 @@ namespace Host
 
             return true;
         }
+
+
+        /// <summary>
+        /// NotWorking
+        /// </summary>
+        internal static ListNode ConvertToLinkedList(TreeListNode node)
+        {
+            if (node == null)
+                throw new ArgumentNullException();
+
+            var queue = new Queue<TreeListNode>();
+            TreeListNode last = null;
+            queue.Enqueue(node);
+
+            while (queue.Count > 0)
+            {
+                node = queue.Dequeue();
+                
+                if (node.Left != null)
+                    queue.Enqueue(node.Left);
+                if (node.Right != null)
+                    queue.Enqueue(node.Right);
+
+                if (last != null)
+                    last.Right = node;
+
+                node.Left = last;
+                last = node;
+                //queue.Dequeue();
+            }
+
+
+            throw new NotImplementedException();
+        }
     }
 }
