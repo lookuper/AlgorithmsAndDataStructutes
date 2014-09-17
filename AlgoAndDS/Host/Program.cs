@@ -27,51 +27,57 @@ namespace Host
                 Left = new TreeListNode(3) { Left = new TreeListNode(2), Right = new TreeListNode(4) },
                 Right = new TreeListNode(7) { Right = new TreeListNode(8), Left = new TreeListNode(6) },
             };
-            int k = 0;
-            TreeListNode kNode = TreeStuff.KthNode(tree, ref k);
+            //int k = 0;
+            //TreeListNode kNode = TreeStuff.KthNode(tree, ref k);
 
-            // find first duplicate in array with values n-1
-            var array = new[] { 2, 3, 1, 0, 2, 5, 3 };
-            int duplicate = ArrayStuff.FirstDuplicate(array);
+            //// find first duplicate in array with values n-1
+            //var array = new[] { 2, 3, 1, 0, 2, 5, 3 };
+            //int duplicate = ArrayStuff.FirstDuplicate(array);
 
-            // sort linked list
-            var notSortedList = new ListNode(2) { Next = new ListNode(1) { Next = new ListNode(3) } };
-            //LinkedListStuff.Sort(notSortedList);
+            //// sort linked list
+            //var notSortedList = new ListNode(2) { Next = new ListNode(1) { Next = new ListNode(3) } };
+            ////LinkedListStuff.Sort(notSortedList);
 
-            // minimum in sorted and rotated array
-            array = new int[] { 3, 4, 1, 2 };
-            int min = ArrayStuff.MinimumInSortedAndRotatedArray(array, 0, array.Length);
+            //// minimum in sorted and rotated array
+            //array = new int[] { 3, 4, 1, 2 };
+            //int min = ArrayStuff.MinimumInSortedAndRotatedArray(array, 0, array.Length);
 
-            // find missing number in array without duplicate
-            array = new int[] { 1, 2, 3, 4, 5, 7, 8 };
-            int missing = ArrayStuff.MissingNumber(array);
+            //// find missing number in array without duplicate
+            //array = new int[] { 1, 2, 3, 4, 5, 7, 8 };
+            //int missing = ArrayStuff.MissingNumber(array);
 
-            // check if binary tree is BST
-            bool isBst = TreeStuff.IsBST(tree);
+            //// check if binary tree is BST
+            //bool isBst = TreeStuff.IsBST(tree);
 
-            // find first non repeating character in string
-            var output = StringStuff.FirstNonRepeatingChar("abcdacb");
+            //// find first non repeating character in string
+            //var output = StringStuff.FirstNonRepeatingChar("abcdacb");
 
-            // sort array of 1 0 2 into 0 1 2
-            array = new int[] { 1, 2, 0, 1, 2 };
-            ArrayStuff.DeutscheFlagSort(array);
+            //// sort array of 1 0 2 into 0 1 2
+            //array = new int[] { 1, 2, 0, 1, 2 };
+            //ArrayStuff.DeutscheFlagSort(array);
 
-            // division two numbers to string
-            output = StringStuff.DivisionToString(10, 4);
+            //// division two numbers to string
+            //output = StringStuff.DivisionToString(10, 4);
 
-            // count number of occurens in sorted array
-            array = new int[] {0, 1, 2, 2, 2, 3, 4, 5};
-            int count = ArrayStuff.OccurensInSortedArray(array, 2);
+            //// count number of occurens in sorted array
+            //array = new int[] {0, 1, 2, 2, 2, 3, 4, 5};
+            //int count = ArrayStuff.OccurensInSortedArray(array, 2);
 
-            // convert flatten list to one demensional list
-            var flattenList = new ListNode(1) { Child = new ListNode(5), Next = new ListNode(2) { Child = new ListNode(6){Child = new ListNode(8), Next = new ListNode(7)}, Next = new ListNode(3) } };
-            LinkedListStuff.FlattenList(flattenList);
+            //// convert flatten list to one demensional list
+            //var flattenList = new ListNode(1) { Child = new ListNode(5), Next = new ListNode(2) { Child = new ListNode(6){Child = new ListNode(8), Next = new ListNode(7)}, Next = new ListNode(3) } };
+            //LinkedListStuff.FlattenList(flattenList);
 
-            // convert tree to linked list
-            //var fromTree = TreeStuff.ConvertToLinkedList(tree);
+            //// convert tree to linked list
+            ////var fromTree = TreeStuff.ConvertToLinkedList(tree);
 
-            // maximum of all subarray of size k
-            ArrayStuff.PrintMaxSubArraysSizeK(new[] { 1, 2, 3, 4, 5, 6}, 3);
+            //// maximum of all subarray of size k
+            //ArrayStuff.PrintMaxSubArraysSizeK(new[] { 1, 2, 3, 4, 5, 6}, 3);
+
+            //// remove keys outside the range in BST
+            //TreeStuff.RemoveKeysOutsideRange(tree, 4, 10);
+
+            // find largest sum of continius numbers in array
+            int result = ArrayStuff.LongestContiniusSum(new[] { 1, 2, -3, 4, 5 });
         }
     }
 }

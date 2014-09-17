@@ -161,5 +161,30 @@ namespace Host
                 Console.WriteLine(max);
             }
         }
+
+        /// <summary>
+        /// Double check, may be incorrect
+        /// </summary>
+        internal static int LongestContiniusSum(int[] input)
+        {
+            int maxSoFar = 0;
+            int maxUpToHere = 0;
+            int largestElement = input[0];
+            bool allNegative = true;
+
+            foreach (var elem in input)
+            {
+                maxUpToHere = Math.Max(0, maxUpToHere);
+                maxSoFar = Math.Max(maxUpToHere, maxSoFar);
+                largestElement = Math.Max(largestElement, elem);
+                if (elem > 0)
+                    allNegative = false;
+            }
+
+            if (allNegative)
+                return largestElement;
+
+            return maxSoFar;
+        }
     }
 }

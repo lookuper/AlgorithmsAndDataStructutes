@@ -83,5 +83,30 @@ namespace Host
 
             throw new NotImplementedException();
         }
+
+        internal static TreeListNode RemoveKeysOutsideRange(TreeListNode root, int min, int max)
+        {
+            if (root == null)
+                return null;
+
+            root.Left = RemoveKeysOutsideRange(root.Left, min, max);
+            root.Right = RemoveKeysOutsideRange(root.Right, min, max);
+
+            if (root.Data < min)
+            {
+                var child = root.Right;
+                root = null;                
+                return child;
+            }
+
+            if (root.Data > max)
+            {
+                var child = root.Left;
+                root = null;
+                return child;
+            }
+
+            return root;
+        }
     }
 }
