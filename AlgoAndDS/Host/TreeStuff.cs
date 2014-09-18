@@ -108,5 +108,22 @@ namespace Host
 
             return root;
         }
+
+        internal static int MinLenSum(TreeListNode root, int sum, int len)
+        {
+            if (root == null)
+                return int.MaxValue;
+
+            int remaning = sum - root.Data;
+            if (remaning == 0)
+                return len+1;
+            else
+            {
+                if (remaning <= root.Data)
+                    return MinLenSum(root.Left, remaning, len + 1);
+                else
+                    return MinLenSum(root.Right, remaning, len + 1);
+            }
+        }
     }
 }

@@ -77,7 +77,13 @@ namespace Host
             //TreeStuff.RemoveKeysOutsideRange(tree, 4, 10);
 
             // find largest sum of continius numbers in array
-            int result = ArrayStuff.LongestContiniusSum(new[] { 1, 2, -3, 4, 5 });
+            //int result = ArrayStuff.LongestContiniusSum(new[] { 1, 2, -3, 4, 5 });
+
+            // minimum length from root to leaf with sum
+            //int len = TreeStuff.MinLenSum(tree, 18, 0);
+
+            // first non repeating char in stream of chars
+            //var s = StringStuff.FirstNonRepeatingCharInStream("google");
         }
     }
 }

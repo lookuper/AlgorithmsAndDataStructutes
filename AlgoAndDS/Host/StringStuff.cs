@@ -77,5 +77,53 @@ namespace Host
 
             return sb.ToString();
         }
+
+        internal static String FirstNonRepeatingCharInStream(string input)
+        {
+            var dict = new OrderedDictionary();
+
+            foreach (var x in input)
+            {
+                string ch = x.ToString();
+                if (dict.Contains(ch))
+                    dict[ch] = true;
+                else
+                    dict.Add(ch, false);
+            }
+
+            foreach (DictionaryEntry  de in dict)
+            {
+                if (!(bool)de.Value)
+                    return de.Key as String;
+            }
+
+            throw new ApplicationException();
+            //var inDLL = new LinkedListNode<char>[1000];
+            //var repeated = new bool?[1000];
+
+            //foreach (var ch in input.ToCharArray())
+            //{
+            //    if (repeated[ch] != null)
+            //    {
+            //        if (inDLL[ch] == null)
+            //        {
+            //            inDLL[ch] = new LinkedListNode<char>(ch);
+            //            repeated[ch] = true;
+            //        }
+            //        else
+            //        {
+            //            inDLL[ch] = null;
+            //            repeated[ch] = true;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        repeated[ch] = false;
+            //        inDLL[ch] = new LinkedListNode<char>(ch);
+            //    }
+            //}
+
+            //return inDLL.First(x => x != null).Value;
+        }
     }
 }
