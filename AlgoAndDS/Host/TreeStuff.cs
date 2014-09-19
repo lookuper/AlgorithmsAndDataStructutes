@@ -125,5 +125,26 @@ namespace Host
                     return MinLenSum(root.Right, remaning, len + 1);
             }
         }
+
+        internal static void ToDoubliLinkedList(TreeListNode node, ref TreeListNode last, ref TreeListNode head)
+        {
+            if (node == null)
+                return;
+
+            if (node.Left != null)
+                ToDoubliLinkedList(node.Left, ref last, ref head);
+
+            if (last != null)
+                last.Right = node;
+            else
+                head = node;
+
+            node.Left = last;
+            last = node;
+
+            if (node.Right != null)
+                ToDoubliLinkedList(node.Right, ref last, ref head);
+
+        }
     }
 }

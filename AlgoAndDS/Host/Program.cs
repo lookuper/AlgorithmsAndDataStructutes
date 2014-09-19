@@ -12,8 +12,8 @@ namespace Host
         static void Main(string[] args)
         {
             // reverse list
-            ListNode head = new ListNode(1) {Next = new ListNode(2) };
-            LinkedListStuff.ReverseList(head);
+            //ListNode head = new ListNode(1) {Next = new ListNode(2) };
+            //LinkedListStuff.ReverseList(head);
 
             // find intersect node
             var tail = new ListNode(5) { Next = new ListNode(6) { Next = new ListNode(7) } };
@@ -84,6 +84,11 @@ namespace Host
 
             // first non repeating char in stream of chars
             //var s = StringStuff.FirstNonRepeatingCharInStream("google");
+
+            // BST to double linked list
+            TreeListNode last = null;
+            TreeListNode head = null;
+            TreeStuff.ToDoubliLinkedList(tree, ref last, ref head);
         }
     }
 }
