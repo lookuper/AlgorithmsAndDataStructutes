@@ -12,7 +12,7 @@ namespace Host
         static void Main(string[] args)
         {
             // reverse list
-            //ListNode head = new ListNode(1) {Next = new ListNode(2) };
+            ListNode head = new ListNode(1) { Next = new ListNode(2) { Next = new ListNode(3) { Next = new ListNode(4) { Next = new ListNode(5) } } } };
             //LinkedListStuff.ReverseList(head);
 
             // find intersect node
@@ -86,9 +86,12 @@ namespace Host
             //var s = StringStuff.FirstNonRepeatingCharInStream("google");
 
             // BST to double linked list
-            TreeListNode last = null;
-            TreeListNode head = null;
-            TreeStuff.ToDoubliLinkedList(tree, ref last, ref head);
+            //TreeListNode last = null;
+            //TreeListNode head = null;
+            //TreeStuff.ToDoubliLinkedList(tree, ref last, ref head);
+
+            // reverse list in groups by k -- not working
+            //LinkedListStuff.ReverseByKGroups(head, 2);
         }
     }
 }
