@@ -125,5 +125,22 @@ namespace Host
 
             //return inDLL.First(x => x != null).Value;
         }
+
+        internal static bool Match(string first, int firstIndex, string second, int secondIndex)
+        {
+            if (firstIndex >= first.Length || secondIndex >= second.Length)
+                return true;
+
+            if (first[firstIndex] == '*' && firstIndex + 1 != first.Length && secondIndex == second.Length-1)
+                return false;
+
+            if (first[firstIndex] == '?' || first[firstIndex] == second[secondIndex])
+                return Match(first, firstIndex + 1, second, secondIndex + 1);
+
+            if (first[firstIndex] == '*')
+                return Match(first, firstIndex + 1, second, secondIndex) || Match(first, firstIndex, second, secondIndex + 1);
+
+            return false;
+        }
     }
 }

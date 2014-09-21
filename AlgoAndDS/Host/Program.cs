@@ -92,6 +92,12 @@ namespace Host
 
             // reverse list in groups by k -- not working
             //LinkedListStuff.ReverseByKGroups(head, 2);
+
+            // regular expression matching
+            //bool match = StringStuff.Match("g*ks", 0, "geeks", 0);
+            //match = StringStuff.Match("ge?ks*", 0, "geeksforgeeks", 0);
+            //match = StringStuff.Match("g*k", 0, "gee", 0);
+
         }
     }
 }
