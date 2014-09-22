@@ -98,6 +98,14 @@ namespace Host
             //match = StringStuff.Match("ge?ks*", 0, "geeksforgeeks", 0);
             //match = StringStuff.Match("g*k", 0, "gee", 0);
 
+            // find max repeating number in arrray
+            //int element = ArrayStuff.MaxRepeatingElement(new[] { 2, 3, 3, 5, 4, 3, 4 }, 8);
+
+            // add two list with reversed numbers
+            var number1 = new ListNode(2) { Next = new ListNode(1) };
+            var number2 = new ListNode(3) { Next = new ListNode(1) };
+
+            ListNode result = LinkedListStuff.AdTwoLists(number1, number2);
         }
     }
 }

@@ -186,5 +186,26 @@ namespace Host
 
             return maxSoFar;
         }
+
+        internal static int MaxRepeatingElement(int[] input, int k)
+        {
+            for (int i = 0; i < input.Length; i++)
+            {
+                input[input[i] % k] += k;
+            }
+
+            int max = input[0];
+            int result = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] > max)
+                {
+                    max = input[i];
+                    result = i;
+                }
+            }
+
+            return result;
+        }
     }
 }
