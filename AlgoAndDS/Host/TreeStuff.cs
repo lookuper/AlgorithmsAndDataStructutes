@@ -146,5 +146,26 @@ namespace Host
                 ToDoubliLinkedList(node.Right, ref last, ref head);
 
         }
+
+        internal static bool IsLeavesOnSameLevel(TreeListNode node, ref int level, ref int leafLevel)
+        {
+            if (node == null)
+                return true;
+
+            if (node.Left == null && node.Right == null)
+            {
+                if (leafLevel == 0)
+                {
+                    leafLevel = level;
+                    return true;
+                }
+
+                return level == leafLevel;
+            }
+            level += 1;
+
+            return IsLeavesOnSameLevel(node.Left, ref level, ref leafLevel) &&
+                   IsLeavesOnSameLevel(node.Right, ref level, ref leafLevel);
+        }
     }
 }

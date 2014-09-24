@@ -106,6 +106,13 @@ namespace Host
             //var number2 = new ListNode(3) { Next = new ListNode(1) };
             ////ListNode result = LinkedListStuff.AdTwoLists(number1, number2);
             //ListNode result = LinkedListStuff.AddTwoListsSameSize(number1, number2, 0);
+
+            // check if leaves at the same level
+            //int level = 0;
+            //int leafLevel = 0;
+            //tree.Left.Right = null;
+            //tree.Left.Left = null;
+            //bool sameLevel = TreeStuff.IsLeavesOnSameLevel(tree, ref level, ref leafLevel);
         }
     }
 }
