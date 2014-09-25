@@ -113,6 +113,9 @@ namespace Host
             //tree.Left.Right = null;
             //tree.Left.Left = null;
             //bool sameLevel = TreeStuff.IsLeavesOnSameLevel(tree, ref level, ref leafLevel);
+
+            // re-arrange alternate nodes and append to end
+            //LinkedListStuff.ReArrangeAlternateNodes(head);
         }
     }
 }
