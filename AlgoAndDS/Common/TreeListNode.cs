@@ -11,6 +11,7 @@ namespace Common
         public Int32 Data { get; set; }
         public TreeListNode Left { get; set; }
         public TreeListNode Right { get; set; }
+        public TreeListNode NextRight { get; set; }
 
         public TreeListNode(int data, TreeListNode left = null, TreeListNode right = null)
         {

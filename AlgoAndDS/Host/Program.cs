@@ -116,6 +116,9 @@ namespace Host
 
             // re-arrange alternate nodes and append to end
             //LinkedListStuff.ReArrangeAlternateNodes(head);
+
+            // connect all nodes at the same level (just on bst)
+            //LinkedListStuff.ConnectNodesAtTheSameLevel(tree);
         }
     }
 }
