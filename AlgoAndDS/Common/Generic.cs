@@ -14,5 +14,17 @@ namespace Common
             a = b;
             b = temp;
         }
+
+        public class PetrolTank
+        {
+            public int Petrol { get; set; }
+            public int Distance { get; set; }
+
+            public PetrolTank(int petrol, int distance)
+            {
+                Petrol = petrol;
+                Distance = distance;
+            }
+        }
     }
 }

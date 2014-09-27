@@ -207,5 +207,29 @@ namespace Host
 
             return result;
         }
+
+        internal static int NPetrolProblem(Generic.PetrolTank[] petrolPump)
+        {
+            int start = 0;
+            int end = 1;
+            int petrol = petrolPump[start].Petrol - petrolPump[start].Distance;
+
+            while (end != start || petrol < 0)
+            {
+                while (petrol < 0 && start != end)
+                {
+                    petrol = petrol - petrolPump[start].Petrol - petrolPump[start].Distance;
+                    start = (start + 1) % petrolPump.Length;
+
+                    if (start == 0)
+                        return -1;
+                }
+
+                petrol = petrol + petrolPump[end].Petrol - petrolPump[end].Distance;
+                end = (end + 1) % petrolPump.Length;
+            }
+
+            return start;
+        }
     }
 }
