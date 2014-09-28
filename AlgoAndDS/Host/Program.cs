@@ -121,15 +121,18 @@ namespace Host
             //LinkedListStuff.ConnectNodesAtTheSameLevel(tree);
 
             // N-petrol bank problem
-            var circle = new List<Generic.PetrolTank>()
-            {
-                new Generic.PetrolTank(9, 10),
-                new Generic.PetrolTank(8, 3),
-                new Generic.PetrolTank(10, 5),
-                new Generic.PetrolTank(1, 1),
-            };
+            //var circle = new List<Generic.PetrolTank>()
+            //{
+            //    new Generic.PetrolTank(9, 10),
+            //    new Generic.PetrolTank(8, 3),
+            //    new Generic.PetrolTank(10, 5),
+            //    new Generic.PetrolTank(1, 1),
+            //};
 
-            int startingPoint = ArrayStuff.NPetrolProblem(circle.ToArray());
+            //int startingPoint = ArrayStuff.NPetrolProblem(circle.ToArray());
+
+            // swap Kth node from beginning and Kth node from end
+            LinkedListStuff.SwapBeginningEnd(head, 2);
         }
     }
 }
