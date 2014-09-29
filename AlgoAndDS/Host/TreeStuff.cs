@@ -167,5 +167,74 @@ namespace Host
             return IsLeavesOnSameLevel(node.Left, ref level, ref leafLevel) &&
                    IsLeavesOnSameLevel(node.Right, ref level, ref leafLevel);
         }
+
+        internal static bool IsPairPresent(TreeListNode tree, int target)
+        {
+            var s1 = new Stack<TreeListNode>();
+            var s2 = new Stack<TreeListNode>();
+            bool done1 = false, done2 = false;
+            int val1 = 0, val2 = 0;
+            TreeListNode cur1 = tree, cur2 = tree;
+
+            while (true)
+            {
+                // inorder strainght
+                while (done1 == false)
+                {
+                    if (cur1 != null)
+                    {
+                        s1.Push(cur1);
+                        cur1 = cur1.Left;
+                    }
+                    else
+                    {
+                        if (s1.Count == 0)
+                            done1 = true;
+                        else
+                        {
+                            cur1 = s1.Pop();
+                            val1 = cur1.Data;
+                            cur1 = cur1.Right;
+                            done1 = true;
+                        }
+                    }
+                }
+
+                // reverse inorder traversal
+                while (done2 == false)
+                {
+                    if (cur2 != null)
+                    {
+                        s2.Push(cur2);
+                        cur2 = cur2.Right;
+                    }
+                    else
+                    {
+                        if (s2.Count == 0)
+                            done2 = true;
+                        else
+                        {
+                            cur2 = s2.Pop();
+                            val2 = cur2.Data;
+                            cur2 = cur2.Left;
+                            done2 = true;
+                        }
+                    }
+                }
+
+                if (val1 != val2 && val1 + val2 == target)
+                    return true;
+                else
+                {
+                    if (val1 + val2 < target)
+                        done1 = false;
+                    else
+                        if (val1 + val2 > target)
+                            done2 = false;
+                }
+            }
+
+            throw new ArgumentException("tree or target");
+        }
     }
 }

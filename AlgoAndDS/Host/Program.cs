@@ -132,7 +132,10 @@ namespace Host
             //int startingPoint = ArrayStuff.NPetrolProblem(circle.ToArray());
 
             // swap Kth node from beginning and Kth node from end
-            LinkedListStuff.SwapBeginningEnd(head, 2);
+            //LinkedListStuff.SwapBeginningEnd(head, 2);
+
+            // is target present in BST as node sum
+            //bool res = TreeStuff.IsPairPresent(tree, 5);
         }
     }
 }
