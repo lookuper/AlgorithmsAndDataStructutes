@@ -136,6 +136,11 @@ namespace Host
 
             // is target present in BST as node sum
             //bool res = TreeStuff.IsPairPresent(tree, 5);
+
+            // given sequence of words pring all anagrams together
+            var words = new List<String>{ "cat", "dog", "tac", "god", "act" };
+            ArrayStuff.PringAnagramsTogether(words);
+
         }
     }
 }

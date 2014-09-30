@@ -231,5 +231,25 @@ namespace Host
 
             return start;
         }
+
+        internal static void PringAnagramsTogether(List<string> words)
+        {
+            var duplicateWords = new KeyValuePair<int, string>[words.Count];
+            for (int i = 0; i < words.Count; i++)
+            {
+                var arr = words[i].ToArray();
+                Array.Sort(arr);
+                var kv = new KeyValuePair<int, string>(i, new String(arr));
+
+                duplicateWords[i] = kv;
+            }
+
+            Array.Sort(duplicateWords, (x, y) => x.Value.CompareTo(y.Value));
+
+            for (int i = 0; i < words.Count; i++)
+            {
+                Console.WriteLine(words[duplicateWords[i].Key]);
+            }
+        }
     }
 }
