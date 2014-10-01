@@ -236,5 +236,19 @@ namespace Host
 
             throw new ArgumentException("tree or target");
         }
+
+        internal static TreeListNode ConvertToBalancedBST(int[] input, int start, int end)
+        {
+            if (start > end)
+                return null;
+
+            int mid = (start + end) / 2;
+
+            var root = new TreeListNode(input[mid]);
+            root.Left = ConvertToBalancedBST(input, start, mid - 1);
+            root.Right = ConvertToBalancedBST(input, mid + 1, end);
+
+            return root;
+        }
     }
 }

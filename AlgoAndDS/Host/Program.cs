@@ -138,9 +138,12 @@ namespace Host
             //bool res = TreeStuff.IsPairPresent(tree, 5);
 
             // given sequence of words pring all anagrams together
-            var words = new List<String>{ "cat", "dog", "tac", "god", "act" };
-            ArrayStuff.PringAnagramsTogether(words);
+            //var words = new List<String>{ "cat", "dog", "tac", "god", "act" };
+            //ArrayStuff.PringAnagramsTogether(words);
 
+            // convert sorted array to balanced bst
+            var input = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            TreeListNode balancedTreeRoot = TreeStuff.ConvertToBalancedBST(input, 0, input.Length-1);
         }
     }
 }
