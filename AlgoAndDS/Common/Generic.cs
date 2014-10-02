@@ -26,5 +26,23 @@ namespace Common
                 Distance = distance;
             }
         }
+
+        public static int CalculateAngle(int hour, int minute)
+        {
+            if (hour < 0 || minute < 0 || hour > 12 || minute > 60)
+                throw new ArgumentException();
+
+            if (hour == 12)
+                hour = 0;
+            if (minute == 60)
+                minute = 0;
+
+            double hourAngle = 0.5 * (hour * 60 + minute);
+            double minuteAngle = 6 * minute;
+            double angle = Math.Abs(hourAngle - minuteAngle);
+            angle = Math.Min(360 - angle, angle);
+
+            return (int)angle;
+        }
     }
 }

@@ -142,8 +142,11 @@ namespace Host
             //ArrayStuff.PringAnagramsTogether(words);
 
             // convert sorted array to balanced bst
-            var input = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-            TreeListNode balancedTreeRoot = TreeStuff.ConvertToBalancedBST(input, 0, input.Length-1);
+            //var input = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            //TreeListNode balancedTreeRoot = TreeStuff.ConvertToBalancedBST(input, 0, input.Length-1);
+
+            // calculate angle between hour and minute hand
+            int res = Generic.CalculateAngle(hour:6, minute:0);
         }
     }
 }
