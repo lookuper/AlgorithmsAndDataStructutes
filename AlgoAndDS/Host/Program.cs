@@ -146,7 +146,13 @@ namespace Host
             //TreeListNode balancedTreeRoot = TreeStuff.ConvertToBalancedBST(input, 0, input.Length-1);
 
             // calculate angle between hour and minute hand
-            int res = Generic.CalculateAngle(hour:6, minute:0);
+            //int res = Generic.CalculateAngle(hour:6, minute:0);
+
+            var l1 = new Common.Generic.Point(20, 20);
+            var l2 = new  Common.Generic.Point(20, 40);
+            var r1 = new Common.Generic.Point(20, 20);
+            var r2 = new Common.Generic.Point(20, 40);
+            bool res = Generic.IsRectanglesOverlap(l1, r1, l2, r2);
         }
     }
 }

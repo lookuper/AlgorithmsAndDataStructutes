@@ -15,6 +15,23 @@ namespace Common
             b = temp;
         }
 
+        public class Point
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+
+            public Point()
+            {
+
+            }
+
+            public Point(int x, int y)
+            {
+                X = x;
+                Y = y;
+            }
+        }
+
         public class PetrolTank
         {
             public int Petrol { get; set; }
@@ -43,6 +60,19 @@ namespace Common
             angle = Math.Min(360 - angle, angle);
 
             return (int)angle;
+        }
+
+        public static bool IsRectanglesOverlap(Point l1, Point r1, Point l2, Point r2)
+        {
+            // if one rectangle is on left side of other
+            if (l1.X > r2.X || l2.X > r1.X)
+                return false;
+
+            // if one above other
+            if (l1.Y < r2.Y || l2.Y < r1.Y)
+                return false;
+
+            return true;
         }
     }
 }
