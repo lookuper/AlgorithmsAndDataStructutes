@@ -148,11 +148,16 @@ namespace Host
             // calculate angle between hour and minute hand
             //int res = Generic.CalculateAngle(hour:6, minute:0);
 
-            var l1 = new Common.Generic.Point(20, 20);
-            var l2 = new  Common.Generic.Point(20, 40);
-            var r1 = new Common.Generic.Point(20, 20);
-            var r2 = new Common.Generic.Point(20, 40);
-            bool res = Generic.IsRectanglesOverlap(l1, r1, l2, r2);
+            // check if rectangles overlap
+            //var l1 = new Common.Generic.Point(20, 20);
+            //var l2 = new  Common.Generic.Point(20, 40);
+            //var r1 = new Common.Generic.Point(20, 20);
+            //var r2 = new Common.Generic.Point(20, 40);
+            //bool res = Generic.IsRectanglesOverlap(l1, r1, l2, r2);
+
+            // maximum path sum between leaves in binary tree
+            int rest = 0;
+            int res = TreeStuff.MaxPathSum(tree, ref rest);
         }
     }
 }

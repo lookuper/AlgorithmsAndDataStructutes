@@ -250,5 +250,20 @@ namespace Host
 
             return root;
         }
+
+        internal static int MaxPathSum(TreeListNode root, ref int rest)
+        {
+            if (root == null)
+                return 0;
+
+            int lSum = MaxPathSum(root.Left, ref rest);
+            int rSum = MaxPathSum(root.Right, ref rest);
+            int curSum = Math.Max(lSum + rSum + root.Data, Math.Max(lSum, rSum));
+
+            if (rest < curSum)
+                rest = curSum;
+
+            return Math.Max(lSum, rSum) + root.Data;
+        }
     }
 }
