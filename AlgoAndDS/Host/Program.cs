@@ -156,8 +156,11 @@ namespace Host
             //bool res = Generic.IsRectanglesOverlap(l1, r1, l2, r2);
 
             // maximum path sum between leaves in binary tree
-            int rest = 0;
-            int res = TreeStuff.MaxPathSum(tree, ref rest);
+            //int rest = 0;
+            //int res = TreeStuff.MaxPathSum(tree, ref rest);
+
+            // merge two sorted arrays into new ordered array
+            int[] res = ArrayStuff.MergeArrays(new int[] { 1, 3, 5, 7 }, new int[] { 2, 4, 6, 8 });
         }
     }
 }

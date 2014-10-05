@@ -251,5 +251,31 @@ namespace Host
                 Console.WriteLine(words[duplicateWords[i].Key]);
             }
         }
+
+        internal static int[] MergeArrays(int[] ar1, int[] ar2)
+        {
+            if (ar1 == null || ar2 == null)
+                throw new ArgumentNullException();
+
+            int index1 = 0;
+            int index2 = 0;
+            int mergedIndex = 0;
+            int[] mergedArray = new int[ar1.Length +ar2.Length];
+
+            while (index1 < ar1.Length && index2 < ar2.Length)
+            {
+                if (ar1[index1] <= ar2[index2])
+                    mergedArray[mergedIndex++] = ar1[index1++];
+                else
+                    mergedArray[mergedIndex++] = ar2[index2++];
+            }
+
+            while (index2 < ar2.Length)
+            {
+                mergedArray[mergedIndex++] = ar2[index2++];
+            }
+
+            return mergedArray;
+        }
     }
 }
