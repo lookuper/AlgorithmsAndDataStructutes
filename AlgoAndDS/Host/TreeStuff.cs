@@ -265,5 +265,38 @@ namespace Host
 
             return Math.Max(lSum, rSum) + root.Data;
         }
+
+        internal static void PrintTreeVertical(TreeListNode tree)
+        {
+            if (tree == null)
+                throw new ArgumentNullException();
+
+            int hd = 0;
+            var map = new Dictionary<int, List<int>>();
+            GetVerticalOrder(tree, hd, map);
+
+            foreach (var kv in map)
+            {
+                foreach (var listItem in kv.Value)
+                {
+                    Console.Write(listItem + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static void GetVerticalOrder(TreeListNode root, int hd, Dictionary<int, List<int>> map)
+        {
+            if (root == null)
+                return;
+
+            if (!map.ContainsKey(hd))
+                map[hd] = new List<int>();
+
+            map[hd].Add(root.Data);
+
+            GetVerticalOrder(root.Left, hd - 1, map);
+            GetVerticalOrder(root.Right, hd + 1, map);
+        }
     }
 }

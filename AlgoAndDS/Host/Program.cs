@@ -163,7 +163,10 @@ namespace Host
             //int[] res = ArrayStuff.MergeArrays(new int[] { 1, 3, 5, 7 }, new int[] { 2, 4, 6, 8 });
 
             // merge two sorted list into new 
-            ListNode mergedHead = LinkedListStuff.MergeTwoLists(head1, head2);
+            //ListNode mergedHead = LinkedListStuff.MergeTwoLists(head1, head2);
+
+            // print tree in vertical order
+            TreeStuff.PrintTreeVertical(tree);
         }
     }
 }
