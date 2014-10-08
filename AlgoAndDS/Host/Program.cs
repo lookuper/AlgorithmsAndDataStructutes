@@ -166,7 +166,11 @@ namespace Host
             //ListNode mergedHead = LinkedListStuff.MergeTwoLists(head1, head2);
 
             // print tree in vertical order
-            TreeStuff.PrintTreeVertical(tree);
+            //TreeStuff.PrintTreeVertical(tree);
+
+            // find if list has a loop
+            //head.Next.Next.Next = head;
+            //bool res = LinkedListStuff.FindLoop(head);
         }
     }
 }
