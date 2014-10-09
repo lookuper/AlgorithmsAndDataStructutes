@@ -169,8 +169,11 @@ namespace Host
             //TreeStuff.PrintTreeVertical(tree);
 
             // find if list has a loop
-            //head.Next.Next.Next = head;
+            head.Next.Next.Next = head.Next;
             //bool res = LinkedListStuff.FindLoop(head);
+            
+            // find start loop node in list
+            ListNode res = LinkedListStuff.FindEntyLoopNode(head);
         }
     }
 }
