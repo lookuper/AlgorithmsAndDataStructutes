@@ -298,5 +298,16 @@ namespace Host
             GetVerticalOrder(root.Left, hd - 1, map);
             GetVerticalOrder(root.Right, hd + 1, map);
         }
+
+        internal static bool IsBST(TreeListNode root, int min, int max)
+        {
+            if (root == null)
+                return true;
+
+            if (root.Data < min || root.Data > max)
+                return false;
+
+            return IsBST(root.Left, min, root.Data) && IsBST(root.Right, root.Data, max);
+        }
     }
 }

@@ -169,11 +169,12 @@ namespace Host
             //TreeStuff.PrintTreeVertical(tree);
 
             // find if list has a loop
-            head.Next.Next.Next = head.Next;
+            //head.Next.Next.Next = head.Next;
             //bool res = LinkedListStuff.FindLoop(head);
             
             // find start loop node in list
-            ListNode res = LinkedListStuff.FindEntyLoopNode(head);
+            //ListNode res = LinkedListStuff.FindEntyLoopNode(head);
+            bool res = TreeStuff.IsBST(tree, int.MinValue, int.MaxValue);
         }
     }
 }
