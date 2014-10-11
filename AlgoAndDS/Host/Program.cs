@@ -174,7 +174,10 @@ namespace Host
             
             // find start loop node in list
             //ListNode res = LinkedListStuff.FindEntyLoopNode(head);
-            bool res = TreeStuff.IsBST(tree, int.MinValue, int.MaxValue);
+            //bool res = TreeStuff.IsBST(tree, int.MinValue, int.MaxValue);
+
+            // find turning number in array
+            int res = ArrayStuff.TurningNumber(new int[] { 3, 4, 5, 6, 7, 1, 2 });
         }
     }
 }

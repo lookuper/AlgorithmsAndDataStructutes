@@ -277,5 +277,32 @@ namespace Host
 
             return mergedArray;
         }
+
+        internal static int TurningNumber(int[] numbers)
+        {
+            if (numbers == null || numbers.Length <= 2)
+                throw new ArgumentException("numbers");
+
+            int left = 0;
+            int right = numbers.Length - 1;
+
+            while (right > left + 1)
+            {
+                int middle = (left + right) / 2;
+                if (middle == 0 || middle == numbers.Length - 1)
+                    return -1;
+                if (numbers[middle] > numbers[middle - 1] && numbers[middle] > numbers[middle + 1])
+                    return middle;
+                else
+                {
+                    if (numbers[middle] > numbers[middle - 1] && numbers[middle] < numbers[middle + 1])
+                        left = middle;
+                    else
+                        right = middle;
+                }
+            }
+
+            return -1;
+        }
     }
 }
