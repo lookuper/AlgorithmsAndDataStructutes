@@ -177,7 +177,10 @@ namespace Host
             //bool res = TreeStuff.IsBST(tree, int.MinValue, int.MaxValue);
 
             // find turning number in array
-            int res = ArrayStuff.TurningNumber(new int[] { 3, 4, 5, 6, 7, 1, 2 });
+            //int res = ArrayStuff.TurningNumber(new int[] { 3, 4, 5, 6, 7, 1, 2 });
+
+            // get majority element from array
+            int res = ArrayStuff.GetMarority(new int[] { 1, 2, 3, 2, 3, 1, 1 });
         }
     }
 }

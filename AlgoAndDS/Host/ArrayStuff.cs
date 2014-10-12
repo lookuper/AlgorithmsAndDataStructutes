@@ -304,5 +304,33 @@ namespace Host
 
             return -1;
         }
+
+        internal static int GetMarority(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException();
+
+            int result = numbers[0];
+            int times = 1;
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (times == 0)
+                {
+                    result = numbers[i];
+                    times = 1;
+                }
+                else
+                {
+                    if (numbers[i] == result)
+                        times++;
+                    else
+                        times--;
+                }
+            }
+
+            // check majority existance
+            return result;
+        }
     }
 }
