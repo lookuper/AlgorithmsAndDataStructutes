@@ -309,5 +309,39 @@ namespace Host
 
             return IsBST(root.Left, min, root.Data) && IsBST(root.Right, root.Data, max);
         }
+
+        internal static TreeListNode GetNextNode(TreeListNode root, TreeListNode node)
+        {
+            if (node == null)
+                return null;
+
+            if (node.Right !=null)
+            {
+                var right = node.Right;
+                while (right.Left != null)
+                    right = right.Left;
+                return right;
+            }
+            else
+            {
+                TreeListNode succ = null;
+                while (root != null)
+                {
+                    if (node.Data < root.Data)
+                    {
+                        succ = root;
+                        root = root.Left;
+                    }
+                    else
+                    {
+                        if (node.Data > root.Data)
+                            root = root.Right;
+                        else
+                            break;
+                    }
+                }
+                return succ;
+            }
+        }
     }
 }

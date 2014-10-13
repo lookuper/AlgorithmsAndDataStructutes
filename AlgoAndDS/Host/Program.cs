@@ -180,7 +180,10 @@ namespace Host
             //int res = ArrayStuff.TurningNumber(new int[] { 3, 4, 5, 6, 7, 1, 2 });
 
             // get majority element from array
-            int res = ArrayStuff.GetMarority(new int[] { 1, 2, 3, 2, 3, 1, 1 });
+            //int res = ArrayStuff.GetMarority(new int[] { 1, 2, 3, 2, 3, 1, 1 });
+
+            // find next node in binary tree wihtout parent node
+            TreeListNode nextNode = TreeStuff.GetNextNode(tree, tree.Right);
         }
     }
 }
