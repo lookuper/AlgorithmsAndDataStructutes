@@ -183,7 +183,7 @@ namespace Host
             //int res = ArrayStuff.GetMarority(new int[] { 1, 2, 3, 2, 3, 1, 1 });
 
             // find next node in binary tree wihtout parent node
-            TreeListNode nextNode = TreeStuff.GetNextNode(tree, tree.Right);
+            // TreeListNode nextNode = TreeStuff.GetNextNode(tree, tree.Right);
         }
     }
 }
