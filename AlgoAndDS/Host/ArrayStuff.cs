@@ -332,5 +332,38 @@ namespace Host
             // check majority existance
             return result;
         }
+
+        internal static void QuickSort(int[] input, int start, int end)
+        {
+            if (start == end)
+                return;
+
+            int pivotIndex = Patrition(input, 0, input.Length-1);
+            QuickSort(input, start, pivotIndex);
+            QuickSort(input, pivotIndex+1, end);
+        }
+
+        private static int Patrition(int[] input, int start, int end)
+        {
+            var random = new Random();
+            int pivot = random.Next((start + end) / 2);
+            Generic.Swap(ref input[pivot], ref input[end]);
+            int small = start - 1;
+
+            for (int i = start; i <= end; i++)
+            {
+                if (input[i] < input[end])
+                {
+                    small++;
+                    if (i != small)
+                        Generic.Swap(ref input[small], ref input[i]);
+                }
+            }
+            small++;
+            if (small != end)
+                Generic.Swap(ref input[small], ref input[end]);
+
+            return small;
+        }
     }
 }

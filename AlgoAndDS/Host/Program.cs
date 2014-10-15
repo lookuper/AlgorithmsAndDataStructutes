@@ -184,6 +184,9 @@ namespace Host
 
             // find next node in binary tree wihtout parent node
             // TreeListNode nextNode = TreeStuff.GetNextNode(tree, tree.Right);
+
+            // quick sort
+            ArrayStuff.QuickSort(new int[] {2,5,3,7,11,5,2,0}, 0, 7);
         }
     }
 }
