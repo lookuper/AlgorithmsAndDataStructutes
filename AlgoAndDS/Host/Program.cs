@@ -186,7 +186,10 @@ namespace Host
             // TreeListNode nextNode = TreeStuff.GetNextNode(tree, tree.Right);
 
             // quick sort
-            ArrayStuff.QuickSort(new int[] {2,5,3,7,11,5,2,0}, 0, 7);
+            //ArrayStuff.QuickSort(new int[] {2,5,3,7,11,5,2,0}, 0, 7);
+
+            // minimal number of coins to charge
+            int res = ArrayStuff.MinCharge(15, new int[] {1,3,4,5,10 });
         }
     }
 }

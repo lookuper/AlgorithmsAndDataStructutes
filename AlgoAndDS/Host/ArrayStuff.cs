@@ -365,5 +365,32 @@ namespace Host
 
             return small;
         }
+
+        internal static int MinCharge(int total, int[] coins)
+        {
+            if (total <= 0 || coins == null || coins.Length == 0)
+                throw new ArgumentException();
+
+            int[] counts = new int[total + 1];
+            counts[0] = 0;
+            int max = Int32.MaxValue;
+
+            for (int i = 0; i <= total; i++)
+            {
+                int count = max;
+                for (int j = 0; j < coins.Length; j++)
+                {
+                    if (i - coins[j] >= 0 && count > counts[i - coins[j]])
+                        count = counts[i - coins[j]];
+                }
+
+                if (count < max)
+                    counts[i] = count + 1;
+                else
+                    counts[i] = max;
+            }
+
+            return counts[total];
+        }
     }
 }
