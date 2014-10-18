@@ -392,5 +392,25 @@ namespace Host
 
             return counts[total];
         }
+
+        internal static void ReorderOddEven(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+                throw new ArgumentException();
+
+            int begin = 0;
+            int end = nums.Length - 1;
+
+            while (begin < end)
+            {
+                while (begin < end && nums[begin] % 2 != 0)
+                    begin++;
+
+                while (begin < end && nums[end] % 2 == 0)
+                    end--;
+
+                Generic.Swap(ref nums[begin], ref nums[end]);
+            }
+        }
     }
 }

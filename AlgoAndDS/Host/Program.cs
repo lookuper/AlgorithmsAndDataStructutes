@@ -192,8 +192,11 @@ namespace Host
             //int res = ArrayStuff.MinCharge(15, new int[] {1,3,4,5,10 });
 
             // delete duplicates from list
-            head.Data = 2;
-            LinkedListStuff.DeleteDuplicates(head);
+            //head.Data = 2;
+            //LinkedListStuff.DeleteDuplicates(head);
+
+            // reorder odd / even
+            ArrayStuff.ReorderOddEven(new int[] { 1,2,3,4,5,6});
         }
     }
 }
