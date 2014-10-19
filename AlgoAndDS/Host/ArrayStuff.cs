@@ -412,5 +412,29 @@ namespace Host
                 Generic.Swap(ref nums[begin], ref nums[end]);
             }
         }
+
+        internal static int[] RemoveValue(int[] num, int n)
+        {
+            if (num == null || num.Length == 0)
+                throw new ArgumentException();
+
+            int p1 = 0;
+            while (p1 < num.Length && num[p1] != n)
+                p1++;
+            int p2 = num.Length - 1;
+
+            while (p1 < p2)
+            {
+                while (p1 < num.Length && num[p1] != n)
+                    ++p1;
+                while (p2 > 0 && num[p2] == n)
+                    p2--;
+
+                if (p1 < p2)
+                    Generic.Swap(ref num[p1], ref num[p2]);
+            }
+
+            return num.Take(p1).ToArray();
+        }
     }
 }

@@ -196,7 +196,10 @@ namespace Host
             //LinkedListStuff.DeleteDuplicates(head);
 
             // reorder odd / even
-            ArrayStuff.ReorderOddEven(new int[] { 1,2,3,4,5,6});
+            //ArrayStuff.ReorderOddEven(new int[] { 1,2,3,4,5,6});
+
+            // remove all instances of value from array
+            int[] res = ArrayStuff.RemoveValue(new int[] { 1, 2, 3, 1, 4, 1, 5, 1, }, 1);
         }
     }
 }
