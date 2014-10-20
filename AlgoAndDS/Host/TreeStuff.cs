@@ -343,5 +343,35 @@ namespace Host
                 return succ;
             }
         }
+
+        internal static bool HasSubTree(TreeListNode root1, TreeListNode root2)
+        {
+            bool res = false;
+
+            if (root1 != null && root2 != null)
+            {
+                if (root1.Data == root2.Data)
+                    res = DoesTree1HasTree2(root1, root2);
+                if (!res)
+                    res = HasSubTree(root1.Left, root2);
+                if (!res)
+                    res = HasSubTree(root1.Right, root2);
+            }
+
+            return res;
+        }
+
+        private static bool DoesTree1HasTree2(TreeListNode root1, TreeListNode root2)
+        {
+            if (root2 == null)
+                return true;
+            if (root1 == null)
+                return false;
+
+            if (root1.Data != root2.Data)
+                return false;
+
+            return DoesTree1HasTree2(root1.Left, root2.Left) && DoesTree1HasTree2(root1.Right, root2.Right);
+        }
     }
 }

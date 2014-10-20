@@ -199,7 +199,10 @@ namespace Host
             //ArrayStuff.ReorderOddEven(new int[] { 1,2,3,4,5,6});
 
             // remove all instances of value from array
-            int[] res = ArrayStuff.RemoveValue(new int[] { 1, 2, 3, 1, 4, 1, 5, 1, }, 1);
+            //int[] res = ArrayStuff.RemoveValue(new int[] { 1, 2, 3, 1, 4, 1, 5, 1, }, 1);
+
+            // check if one tree is subtree of another tree
+            bool res = TreeStuff.HasSubTree(tree, tree);
         }
     }
 }
