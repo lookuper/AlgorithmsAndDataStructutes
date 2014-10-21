@@ -373,5 +373,23 @@ namespace Host
 
             return DoesTree1HasTree2(root1.Left, root2.Left) && DoesTree1HasTree2(root1.Right, root2.Right);
         }
+
+        internal static void MirrorTree(TreeListNode root)
+        {
+            if (root == null)
+                return;
+
+            if (root.Left == null && root.Right == null)
+                return;
+
+            var temp = root.Left;
+            root.Left = root.Right;
+            root.Right = temp;
+
+            if (root.Left != null)
+                MirrorTree(root.Left);
+            if (root.Right != null)
+                MirrorTree(root.Right);
+        }
     }
 }

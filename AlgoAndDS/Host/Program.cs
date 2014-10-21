@@ -202,7 +202,10 @@ namespace Host
             //int[] res = ArrayStuff.RemoveValue(new int[] { 1, 2, 3, 1, 4, 1, 5, 1, }, 1);
 
             // check if one tree is subtree of another tree
-            bool res = TreeStuff.HasSubTree(tree, tree);
+            //bool res = TreeStuff.HasSubTree(tree, tree);
+
+            // mirror tree
+            TreeStuff.MirrorTree(tree);
         }
     }
 }
