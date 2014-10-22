@@ -205,7 +205,10 @@ namespace Host
             //bool res = TreeStuff.HasSubTree(tree, tree);
 
             // mirror tree
-            TreeStuff.MirrorTree(tree);
+            //TreeStuff.MirrorTree(tree);
+
+            // check if binary tree is symetric
+            bool res = TreeStuff.IsSymetric(tree, tree);
         }
     }
 }

@@ -391,5 +391,15 @@ namespace Host
             if (root.Right != null)
                 MirrorTree(root.Right);
         }
+
+        internal static bool IsSymetric(TreeListNode root1, TreeListNode root2)
+        {
+            if (root1 == null && root2 == null)
+                return true;
+            if (root1 == null || root2 == null)
+                return false;
+
+            return IsSymetric(root1.Left, root2.Right) && IsSymetric(root1.Right, root1.Left);
+        }
     }
 }
