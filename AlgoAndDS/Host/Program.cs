@@ -191,7 +191,7 @@ namespace Host
             // minimal number of coins to charge
             //int res = ArrayStuff.MinCharge(15, new int[] {1,3,4,5,10 });
 
-            // delete duplicates from list
+            // delete duplicates from list\
             //head.Data = 2;
             //LinkedListStuff.DeleteDuplicates(head);
 
@@ -208,7 +208,16 @@ namespace Host
             //TreeStuff.MirrorTree(tree);
 
             // check if binary tree is symetric
-            bool res = TreeStuff.IsSymetric(tree, tree);
+            //bool res = TreeStuff.IsSymetric(tree, tree);
+
+            // print matrix in spiral order
+            int[,] numbers = new int[,]
+            {
+                {1,2,3},
+                {4,5,6},
+                {7,8,9},
+            };
+            ArrayStuff.PrintMatrixInSpiralOrder(numbers);
         }
     }
 }

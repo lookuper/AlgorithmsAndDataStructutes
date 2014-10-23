@@ -436,5 +436,50 @@ namespace Host
 
             return num.Take(p1).ToArray();
         }
+
+        internal static void PrintMatrixInSpiralOrder(int[,] numbers)
+        {
+            int rows = (int)numbers.GetLength(0);
+            int columns = (int)numbers.GetLongLength(0);
+
+            int start = 0;
+            while (columns > start*2 && rows > start * 2)
+            {
+                PrintRing(numbers, start);
+                start++;
+            }
+        }
+
+        private static void PrintRing(int[,] num, int start)
+        {
+                //{1,2,3},
+                //{4,5,6},
+                //{7,8,9},
+            int rows = num.GetLength(0);
+            int columns = (int)num.GetLongLength(0);
+            int endX = columns - 1 - start;
+            int endY = rows - 1 - start;
+
+            // from left to right
+            for (int i = start; i <= endX; i++)
+                Console.WriteLine(num[start,i]);
+
+            // top down
+            if (start < endY)
+                for (int i = start + 1; i <= endY; i++)
+                {
+                    Console.WriteLine(num[i, endX]);
+                }
+
+            //// from right to left
+            if (start < endX && start < endY)
+                for (int i = endX - 1; i >= start; i--)
+                    Console.WriteLine(num[endY, i]);
+
+            //// bottom up
+            if (start < endX && start < endY - 1)
+                for (int i = endY - 1; i >= start + 1; i--)
+                    Console.WriteLine(num[i, start]);
+        }
     }
 }
