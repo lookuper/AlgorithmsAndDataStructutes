@@ -211,13 +211,16 @@ namespace Host
             //bool res = TreeStuff.IsSymetric(tree, tree);
 
             // print matrix in spiral order
-            int[,] numbers = new int[,]
-            {
-                {1,2,3},
-                {4,5,6},
-                {7,8,9},
-            };
-            ArrayStuff.PrintMatrixInSpiralOrder(numbers);
+            //int[,] numbers = new int[,]
+            //{
+            //    {1,2,3},
+            //    {4,5,6},
+            //    {7,8,9},
+            //};
+            //ArrayStuff.PrintMatrixInSpiralOrder(numbers);
+
+            // print tree from top to bottom
+            TreeStuff.PrintTreeFromTopToBottom(tree);
         }
     }
 }

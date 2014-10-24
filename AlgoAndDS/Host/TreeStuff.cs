@@ -401,5 +401,25 @@ namespace Host
 
             return IsSymetric(root1.Left, root2.Right) && IsSymetric(root1.Right, root1.Left);
         }
+
+        internal static void PrintTreeFromTopToBottom(TreeListNode root)
+        {
+            if (root == null)
+                throw new NotImplementedException();
+
+            var queue = new Queue<TreeListNode>();
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                Console.WriteLine(node.Data);
+
+                if (node.Left != null)
+                    queue.Enqueue(node.Left);
+                if (node.Right != null)
+                    queue.Enqueue(node.Right);
+            }
+        }
     }
 }
