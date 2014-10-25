@@ -220,7 +220,10 @@ namespace Host
             //ArrayStuff.PrintMatrixInSpiralOrder(numbers);
 
             // print tree from top to bottom
-            TreeStuff.PrintTreeFromTopToBottom(tree);
+            //TreeStuff.PrintTreeFromTopToBottom(tree);
+
+            // print tree from top to bottom each level in line
+            TreeStuff.PrintTopDownLevelByLevel(tree);
         }
     }
 }

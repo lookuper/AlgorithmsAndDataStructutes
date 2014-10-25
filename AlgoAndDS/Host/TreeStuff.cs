@@ -421,5 +421,41 @@ namespace Host
                     queue.Enqueue(node.Right);
             }
         }
+
+        internal static void PrintTopDownLevelByLevel(TreeListNode root)
+        {
+            if (root == null)
+                throw new ArgumentNullException();
+
+            var queue = new Queue<TreeListNode>();
+            queue.Enqueue(root);
+            int nextLevel = 0;
+            int toBePrinted = 1;
+
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                Console.Write(node.Data + " ");
+
+                if (node.Left != null)
+                {
+                    queue.Enqueue(node.Left);
+                    nextLevel++;
+                }
+                if (node.Right != null)
+                {
+                    queue.Enqueue(node.Right);
+                    nextLevel++;
+                }
+
+                toBePrinted--;
+                if (toBePrinted == 0)
+                {
+                    Console.WriteLine();
+                    toBePrinted = nextLevel;
+                    nextLevel = 0;
+                }
+            }
+        }
     }
 }
