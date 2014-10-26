@@ -223,7 +223,12 @@ namespace Host
             //TreeStuff.PrintTreeFromTopToBottom(tree);
 
             // print tree from top to bottom each level in line
-            TreeStuff.PrintTopDownLevelByLevel(tree);
+            //TreeStuff.PrintTopDownLevelByLevel(tree);
+
+            // clone complex linked list with sibling pointer
+            head.Sibling = head.Next;
+            head.Next.Next.Sibling = head.Next.Next.Next.Next;
+            ListNode res = LinkedListStuff.CloneComplexList(head);
         }
     }
 }
