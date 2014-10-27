@@ -226,9 +226,12 @@ namespace Host
             //TreeStuff.PrintTopDownLevelByLevel(tree);
 
             // clone complex linked list with sibling pointer
-            head.Sibling = head.Next;
-            head.Next.Next.Sibling = head.Next.Next.Next.Next;
-            ListNode res = LinkedListStuff.CloneComplexList(head);
+            //head.Sibling = head.Next;
+            //head.Next.Next.Sibling = head.Next.Next.Next.Next;
+            //ListNode res = LinkedListStuff.CloneComplexList(head);
+
+            // print tree in zig-zag order
+            TreeStuff.PrintTreeZigZagOrder(tree);
         }
     }
 }

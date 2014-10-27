@@ -457,5 +457,44 @@ namespace Host
                 }
             }
         }
+
+        internal static void PrintTreeZigZagOrder(TreeListNode root)
+        {
+            if (root == null)
+                throw new ArgumentNullException();
+
+            var levels = new Stack<TreeListNode>[2] { new Stack<TreeListNode>(), new Stack<TreeListNode>() };
+            int current = 0;
+            int next = 1;
+            levels[current].Push(root);
+
+            while (levels[current].Count > 0 && levels[next] != null)
+            {
+                var node = levels[current].Pop();
+                Console.Write(node.Data + " ");
+
+                if (current == 0)
+                {
+                    if (node.Left != null)
+                        levels[next].Push(node.Left);
+                    if (node.Right != null)
+                        levels[next].Push(node.Right);
+                }
+                else
+                {
+                    if (node.Right != null)
+                        levels[next].Push(node.Right);
+                    if (node.Left != null)
+                        levels[next].Push(node.Left);
+                }
+
+                if (levels[current].Count == 0)
+                {
+                    Console.WriteLine();
+                    current = 1 - current;
+                    next = 1 - next;
+                }
+            }
+        }
     }
 }
