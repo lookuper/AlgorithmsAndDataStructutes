@@ -231,7 +231,10 @@ namespace Host
             //ListNode res = LinkedListStuff.CloneComplexList(head);
 
             // print tree in zig-zag order
-            TreeStuff.PrintTreeZigZagOrder(tree);
+            //TreeStuff.PrintTreeZigZagOrder(tree);
+
+            // find path in binary tree
+            TreeStuff.PathInBinaryTree(root:tree, expectedSum: 13);
         }
     }
 }

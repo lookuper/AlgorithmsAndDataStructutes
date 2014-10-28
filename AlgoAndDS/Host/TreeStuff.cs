@@ -496,5 +496,40 @@ namespace Host
                 }
             }
         }
+
+        internal static void PathInBinaryTree(TreeListNode root, int expectedSum)
+        {
+            if (root == null)
+                throw new ArgumentNullException();
+
+            var path = new List<int>();
+            int currentSum = 0;
+            FindPath(root, expectedSum, path, currentSum);
+        }
+
+        private static void FindPath(TreeListNode root, int expectedSum, List<int> path, int currentSum)
+        {
+            currentSum += root.Data;
+            path.Add(root.Data);
+            bool isLeaf = root.Left != null && root.Right != null;
+            
+            if (currentSum == expectedSum && isLeaf)
+            {
+                Console.Write("Path found: ");
+                foreach (var item in path)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+
+            if (root.Left != null)
+                FindPath(root.Left, expectedSum, path, currentSum);
+            if (root.Right != null)
+                FindPath(root.Right, expectedSum, path, currentSum);
+
+            if (path.Count > 0)
+                path.RemoveAt(path.Count - 1);
+        }
     }
 }
