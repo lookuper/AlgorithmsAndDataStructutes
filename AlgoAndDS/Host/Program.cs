@@ -234,7 +234,13 @@ namespace Host
             //TreeStuff.PrintTreeZigZagOrder(tree);
 
             // find path in binary tree
-            TreeStuff.PathInBinaryTree(root:tree, expectedSum: 13);
+            //TreeStuff.PathInBinaryTree(root:tree, expectedSum: 13);
+
+            // stack with min function
+            var stack = new Generic.IntStackWithMinOption();
+            stack.Push(2);
+            stack.Push(3); 
+            stack.Push(1);
         }
     }
 }

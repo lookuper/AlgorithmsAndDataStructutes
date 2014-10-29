@@ -74,5 +74,51 @@ namespace Common
 
             return true;
         }
+
+        public class IntStackWithMinOption
+        {
+            private readonly Stack<int> data = new Stack<int>();
+            private int? min = null;
+
+            public void Push(int val)
+            {
+                if (data.Count == 0)
+                {
+                    data.Push(val);
+                    min = val;
+                }
+                else
+                {
+                    if (val >= min)
+                        data.Push(val);
+                    else
+                    {
+                        data.Push(2 * val - min.Value);
+                        min = val;
+                    }
+                }
+            }
+
+            public int Pop()
+            {
+                if (data.Count <= 0)
+                    throw new InvalidOperationException("0 items in stack");
+
+                if (data.Peek() < min)
+                    min = 2 * min - data.Peek();
+
+                return data.Pop();
+            }
+
+            public int Min()
+            {
+                int top = data.Peek();
+
+                if (top < min)
+                    top = min.Value;
+
+                return top;
+            }
+        }
     }
 }
