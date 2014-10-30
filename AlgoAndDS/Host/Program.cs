@@ -237,10 +237,15 @@ namespace Host
             //TreeStuff.PathInBinaryTree(root:tree, expectedSum: 13);
 
             // stack with min function
-            var stack = new Generic.IntStackWithMinOption();
-            stack.Push(2);
-            stack.Push(3); 
-            stack.Push(1);
+            //var stack = new Generic.IntStackWithMinOption();
+            //stack.Push(2);
+            //stack.Push(3); 
+            //stack.Push(1);
+
+            // build binary tree with preorder and inorder
+            var pre = new int[] {3,2,1,4,5 };
+            var inorder = new int[] {1,2,3,4,5 };
+            TreeListNode root =  TreeStuff.ConstructTree(pre, inorder);
         }
     }
 }

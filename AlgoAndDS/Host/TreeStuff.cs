@@ -531,5 +531,48 @@ namespace Host
             if (path.Count > 0)
                 path.RemoveAt(path.Count - 1);
         }
+
+        internal static TreeListNode ConstructTree(int[] pre, int[] inorder)
+        {
+            if (pre == null || inorder == null)
+                throw new ArgumentNullException();
+            if (pre.Length == 0 || inorder.Length == 0)
+                throw new ArgumentException();
+
+            return ConstructTreeCore(pre, inorder, 0, pre.Length-1, 0, inorder.Length-1);
+        }
+
+        private static TreeListNode ConstructTreeCore(int[] pre, int[] inorder, int startPre, int endPre, int startIn, int endIn)
+        {
+            int rootValue = pre[0];
+            var root = new TreeListNode(rootValue);
+
+            if (startPre == endPre)
+            {
+                if (startIn == endIn && startPre == startIn)
+                    return root;
+                else
+                    throw new ArgumentException();
+            }
+
+            int rootIn = inorder[0];
+            while (rootIn <= endIn && rootIn != rootValue)
+            {
+                rootIn++;
+            }
+
+            if (rootIn == endIn && rootIn != rootValue)
+                throw new ArgumentException();
+
+            int left = rootIn - startIn;
+            int preOrderLeftEndLeft = startPre + left;
+            if (preOrderLeftEndLeft > 0)
+                root.Left = ConstructTreeCore(pre, inorder, ++startPre, endPre, startIn, rootIn - 1);
+
+            if (preOrderLeftEndLeft < endPre - startPre)
+                root.Right = ConstructTreeCore(pre, inorder, preOrderLeftEndLeft + 1, endPre, rootIn + 1, endIn);
+
+            return root;
+        }
     }
 }
