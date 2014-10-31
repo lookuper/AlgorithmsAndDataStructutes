@@ -574,5 +574,36 @@ namespace Host
 
             return root;
         }
+
+        internal static bool VerifyPostOrderSequence(int[] seq, int start=0)
+        {
+            if (seq == null || seq.Length == 0)
+                throw new ArgumentException();
+
+            int root = seq[seq.Length - 1];
+            int i = 0;
+            for (; i < seq.Length-1; i++)
+            {
+                if (seq[i] > root)
+                    break;
+            }
+
+            int j = i;
+            for (; j < seq.Length-1; j++)
+            {
+                if (seq[j] < root)
+                    return false;
+            }
+
+            bool left = true;
+            if (i > 0)
+                left = VerifyPostOrderSequence(seq, i);
+
+            bool right = true;
+            if (i < seq.Length - 1)
+                right = VerifyPostOrderSequence(seq, seq.Length - 1 - i);
+
+            return left && right;
+        }
     }
 }

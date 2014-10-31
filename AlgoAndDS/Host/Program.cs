@@ -243,9 +243,12 @@ namespace Host
             //stack.Push(1);
 
             // build binary tree with preorder and inorder
-            var pre = new int[] {3,2,1,4,5 };
-            var inorder = new int[] {1,2,3,4,5 };
-            TreeListNode root =  TreeStuff.ConstructTree(pre, inorder);
+            //var pre = new int[] {3,2,1,4,5 };
+            //var inorder = new int[] {1,2,3,4,5 };
+            //TreeListNode root =  TreeStuff.ConstructTree(pre, inorder);
+
+            // check if array is post-order sequence of bst
+            bool res = TreeStuff.VerifyPostOrderSequence(new int[] {2,3,7,8,5 });
         }
     }
 }
