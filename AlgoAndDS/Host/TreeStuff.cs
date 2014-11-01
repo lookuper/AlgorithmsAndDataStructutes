@@ -605,5 +605,38 @@ namespace Host
 
             return left && right;
         }
+
+        internal static TreeListNode ConvertToDoubleLinkedList(TreeListNode root)
+        {
+            TreeListNode lastNode = null;
+            ConvertNode(root, lastNode);
+
+            TreeListNode head = root;
+            while (head != null && head.Left != null)
+            {
+                head = head.Left;
+            }
+
+            return head;
+        }
+
+        private static void ConvertNode(TreeListNode node, TreeListNode last)
+        {
+            if (node == null)
+                return;
+
+            var current = node;
+            if (current.Left != null)
+                ConvertNode(current.Left, last);
+
+            current.Left = last;
+            if (last != null)
+                last.Right = current;
+
+            last = current;
+
+            if (current.Right != null)
+                ConvertNode(current.Right, last);
+        }
     }
 }

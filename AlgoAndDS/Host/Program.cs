@@ -248,7 +248,10 @@ namespace Host
             //TreeListNode root =  TreeStuff.ConstructTree(pre, inorder);
 
             // check if array is post-order sequence of bst
-            bool res = TreeStuff.VerifyPostOrderSequence(new int[] {2,3,7,8,5 });
+            //bool res = TreeStuff.VerifyPostOrderSequence(new int[] {2,3,7,8,5 });
+
+            // convert bst to double-linked list
+            TreeListNode res = TreeStuff.ConvertToDoubleLinkedList(tree);
         }
     }
 }
