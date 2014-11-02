@@ -251,7 +251,11 @@ namespace Host
             //bool res = TreeStuff.VerifyPostOrderSequence(new int[] {2,3,7,8,5 });
 
             // convert bst to double-linked list
-            TreeListNode res = TreeStuff.ConvertToDoubleLinkedList(tree);
+            //TreeListNode res = TreeStuff.ConvertToDoubleLinkedList(tree);
+
+            //generate all possible pairs of brackets
+            string res = Generic.GenerateAllPossibleBrackets(String.Empty, 12);
+            Console.WriteLine(res);
         }
     }
 }

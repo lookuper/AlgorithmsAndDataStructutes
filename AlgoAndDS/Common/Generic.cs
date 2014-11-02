@@ -120,5 +120,42 @@ namespace Common
                 return top;
             }
         }
+
+        public static string GenerateAllPossibleBrackets(string str, int limit)
+        {
+            if (str.Length == 2 * limit)
+                return str;
+
+            int open = 0;
+            int close = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == '{')
+                    open++;
+                else
+                    if (str[i] == '}')
+                        close++;
+            }
+
+            if (open == close)
+            {
+                str += "{";
+                return GenerateAllPossibleBrackets(str, limit);
+            }
+            else
+            {
+                if (open == limit)
+                {
+                    str += "}";
+                    return GenerateAllPossibleBrackets(str, limit);
+                }
+                else
+                {
+                    var str1 = str + "{";
+                    var str2 = str + "}";
+                    return GenerateAllPossibleBrackets(str1, limit) + Environment.NewLine + GenerateAllPossibleBrackets(str2, limit);
+                }
+            }
+        }
     }
 }
