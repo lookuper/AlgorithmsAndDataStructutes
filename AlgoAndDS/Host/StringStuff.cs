@@ -142,5 +142,22 @@ namespace Host
 
             return false;
         }
+
+        internal static void Permutations(string prefix, string str)
+        {
+            if (str.Length == 0)
+                Console.WriteLine(prefix);
+            else
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    var pre = prefix + str[i];
+                    var post = str.Substring(0, i) + str.Substring(i + 1, str.Length - 1 - i);
+
+                    Permutations(pre, post);
+                }
+            }
+
+        }
     }
 }

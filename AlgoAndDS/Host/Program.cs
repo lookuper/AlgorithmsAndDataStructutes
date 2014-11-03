@@ -254,8 +254,11 @@ namespace Host
             //TreeListNode res = TreeStuff.ConvertToDoubleLinkedList(tree);
 
             //generate all possible pairs of brackets
-            string res = Generic.GenerateAllPossibleBrackets(String.Empty, 12);
-            Console.WriteLine(res);
+            //string res = Generic.GenerateAllPossibleBrackets(String.Empty, 12);
+            //Console.WriteLine(res);
+
+            // generate string permutations
+            StringStuff.Permutations(String.Empty, "ABC");
         }
     }
 }
