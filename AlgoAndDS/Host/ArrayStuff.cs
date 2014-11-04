@@ -481,5 +481,32 @@ namespace Host
                 for (int i = endY - 1; i >= start + 1; i--)
                     Console.WriteLine(num[i, start]);
         }
+
+        internal static void AllPermutations(List<int[]> input)
+        {
+            var permutations = new Stack<int>();
+            PermuteCore(input, permutations);
+        }
+
+        private static void PermuteCore(List<int[]> arrays, Stack<int> permutations)
+        { 
+            if (permutations.Count == arrays.Count)
+            {
+                foreach (var item in permutations)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+                return;
+            }
+
+            int[] array = arrays[permutations.Count];
+            for (int i = 0; i < array.Length; i++)
+            {
+                permutations.Push(array[i]);
+                PermuteCore(arrays, permutations);
+                permutations.Pop();
+            }
+        }
     }
 }

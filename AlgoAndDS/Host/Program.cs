@@ -258,7 +258,15 @@ namespace Host
             //Console.WriteLine(res);
 
             // generate string permutations
-            StringStuff.Permutations(String.Empty, "ABC");
+            //StringStuff.Permutations(String.Empty, "ABC");
+
+            // generate all arrays permutations
+            var input = new List<int[]>
+            {
+                new int[] {1,2},
+                new int[] {4,5},
+            };
+            ArrayStuff.AllPermutations(input);
         }
     }
 }
