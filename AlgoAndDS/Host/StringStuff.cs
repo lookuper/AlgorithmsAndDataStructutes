@@ -159,5 +159,40 @@ namespace Host
             }
 
         }
+
+        internal static void Combination(string str)
+        {
+            if (String.IsNullOrEmpty(str))
+                throw new ArgumentException();
+
+            var result = new Stack<char>();
+            for (int i = 1; i <= str.Length; i++)
+            {
+                Combination(str, 0, i, result);
+            }
+        }
+
+        private static void Combination(string str, int index, int number, Stack<char> result)
+        {
+            if (number == 0)
+            {
+                foreach (var item in result)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+                return;
+            }
+
+            if (index == str.Length)
+                return;
+
+            result.Push(str[index]);
+            Combination(str, index + 1, number - 1, result);
+            result.Pop();
+
+            // ignore char at str[index]
+            Combination(str, index + 1, number, result);
+        }
     }
 }
