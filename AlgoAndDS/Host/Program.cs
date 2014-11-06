@@ -269,7 +269,11 @@ namespace Host
             //ArrayStuff.AllPermutations(input);
 
             // generate all string permutation on each char
-            StringStuff.Combination("ABC");
+            //StringStuff.Combination("ABC");
+
+            // intersection of two sorted arrays
+            List<int> res;
+            ArrayStuff.Intersection(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 6, 7 }, out res);
         }
     }
 }

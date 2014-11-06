@@ -508,5 +508,29 @@ namespace Host
                 permutations.Pop();
             }
         }
+
+        internal static void Intersection(int[] ar1, int[] ar2, out List<int> res)
+        {
+            int index1 = 0;
+            int index2 = 0;
+            res = new List<int>();
+
+            while (index1 != ar1.Length-1 && index2 != ar1.Length-1)
+            {
+                if (ar1[index1] == ar2[index2])
+                {
+                    res.Add(ar1[index1]);
+                    index1++;
+                    index2++;
+                }
+                else
+                {
+                    if (ar1[index1] < ar2[index2])
+                        index1++;
+                    else
+                        index2++;
+                }
+            }
+        }
     }
 }
