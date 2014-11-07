@@ -532,5 +532,26 @@ namespace Host
                 }
             }
         }
+
+        internal static int GetGretestSumOfSubArray(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException();
+
+            int curSum = 0;
+            int greatestSum = int.MinValue;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (curSum <= 0)
+                    curSum = numbers[i];
+                else
+                    curSum += numbers[i];
+
+                if (curSum > greatestSum)
+                    greatestSum = curSum;
+            }
+
+            return greatestSum;
+        }
     }
 }

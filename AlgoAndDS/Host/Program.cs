@@ -272,8 +272,11 @@ namespace Host
             //StringStuff.Combination("ABC");
 
             // intersection of two sorted arrays
-            List<int> res;
-            ArrayStuff.Intersection(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 6, 7 }, out res);
+            //List<int> res;
+            //ArrayStuff.Intersection(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 6, 7 }, out res);
+
+            // get maximum sum of sub-array
+            int res = ArrayStuff.GetGretestSumOfSubArray(numbers: new int[] { 4, 7, 2, -3, 3, 2 });
         }
     }
 }
