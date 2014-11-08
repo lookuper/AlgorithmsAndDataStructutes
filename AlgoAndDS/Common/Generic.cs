@@ -157,5 +157,30 @@ namespace Common
                 }
             }
         }
+
+        public static int NumberBetween1AndN(int n)
+        {
+            int number = 0;
+
+            for (int i = 0; i <= n; i++)
+            {
+                number += NumberOf1(i);
+            }
+
+            return number;
+        }
+
+        private static int NumberOf1(int n)
+        {
+            int number = 0;
+            while (n > 0)
+            {
+                if (n % 10 == 1)
+                    number++;
+                n = n / 10;
+            }
+
+            return number;
+        }
     }
 }
