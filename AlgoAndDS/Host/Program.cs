@@ -279,7 +279,10 @@ namespace Host
             //int res = ArrayStuff.GetGretestSumOfSubArray(numbers: new int[] { 4, 7, 2, -3, 3, 2 });
 
             // digit 1 appears in number sequence
-            int res = Generic.NumberBetween1AndN(n:49);
+            //int res = Generic.NumberBetween1AndN(n:49);
+
+            // concatuate an array to get minimum numbers
+            ArrayStuff.GetMinFromConcatuatedArray(numbers: new int[] { 2, 5, 3, 1, 7, 0 });
         }
     }
 }

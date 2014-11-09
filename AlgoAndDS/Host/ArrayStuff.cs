@@ -553,5 +553,35 @@ namespace Host
 
             return greatestSum;
         }
+
+        internal static void GetMinFromConcatuatedArray(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException();
+
+            var strNumbers = new string[numbers.Length];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                strNumbers[i] = numbers[i].ToString();
+            }
+
+            Array.Sort(strNumbers, new NumbersComparator());
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(strNumbers[i]);
+            }
+        }
+
+        private class NumbersComparator : Comparer<String>
+        {
+            public override int Compare(string x, string y)
+            {
+                string str1 = x + y;
+                string str2 = y + x;
+
+                return x.CompareTo(y);
+            }
+        }
     }
 }
