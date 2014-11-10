@@ -282,7 +282,10 @@ namespace Host
             //int res = Generic.NumberBetween1AndN(n:49);
 
             // concatuate an array to get minimum numbers
-            ArrayStuff.GetMinFromConcatuatedArray(numbers: new int[] { 2, 5, 3, 1, 7, 0 });
+            //ArrayStuff.GetMinFromConcatuatedArray(numbers: new int[] { 2, 5, 3, 1, 7, 0 });
+
+            // check if two english word is anagrams
+            bool res = StringStuff.IsAnagrams(s1: "lisa", s2: "aaaa");
         }
     }
 }

@@ -194,5 +194,33 @@ namespace Host
             // ignore char at str[index]
             Combination(str, index + 1, number, result);
         }
+
+        internal static bool IsAnagrams(string s1, string s2)
+        {
+            if (s1.Length != s2.Length)
+                return false;
+
+            var times = new Dictionary<char, int>();
+            for (int i = 0; i < s1.Length; i++)
+            {
+                char ch = s1[i];
+                if (times.ContainsKey(ch))
+                    times.Add(ch, times[ch] + 1);
+                else
+                    times.Add(ch, 1);
+            }
+            for (int i = 0; i < s2.Length; i++)
+            {
+                char ch = s2[i];
+                if (!times.ContainsKey(ch))
+                    return false;
+                if (times[ch] == 0)
+                    return false;
+
+                times[ch] = times[ch] - 1;
+            }
+
+            return true;
+        }
     }
 }
