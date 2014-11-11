@@ -583,5 +583,62 @@ namespace Host
                 return x.CompareTo(y);
             }
         }
+
+        internal static int ReversedPairs(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException();
+
+            int[] buffer = new int[numbers.Length];
+            return CountPairsCore(numbers, buffer, 0, numbers.Length - 1);
+        }
+
+        private static int CountPairsCore(int[] numbers, int[] buffer, int start, int end)
+        {
+            if (start >= end)
+                return 0;
+
+            int middle = start + (end - start) / 2;
+            int left = CountPairsCore(numbers, buffer, 0, middle);
+            int right = CountPairsCore(numbers, buffer, middle + 1, end);
+            int between = MergeArrays(numbers, buffer, start, middle, end);
+
+            return left + right + between;
+        }
+
+        private static int MergeArrays(int[] numbers, int[] buffer, int start, int middle, int end)
+        {
+            int i = middle;
+            int j = end;
+            int k = end;
+            int count = 0;
+
+            while (i >= start && j >= middle+1)
+            {
+                if (numbers[i] > numbers[j])
+                {
+                    buffer[k--] = numbers[i--];
+                    count += (j - middle);
+                }
+                else
+                    buffer[k--] = numbers[j--];
+            }
+
+            while (i >= start)
+            {
+                buffer[k--] = numbers[i--];
+            }
+            while (j >= middle+1)
+            {
+                buffer[k--] = numbers[j--];
+            }
+
+            for (i = start; i <= end; i++)
+            {
+                numbers[i] = buffer[i];
+            }
+
+            return count;
+        }
     }
 }

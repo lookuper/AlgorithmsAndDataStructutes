@@ -285,7 +285,10 @@ namespace Host
             //ArrayStuff.GetMinFromConcatuatedArray(numbers: new int[] { 2, 5, 3, 1, 7, 0 });
 
             // check if two english word is anagrams
-            bool res = StringStuff.IsAnagrams(s1: "lisa", s2: "aaaa");
+            //bool res = StringStuff.IsAnagrams(s1: "lisa", s2: "aaaa");
+
+            // count reversed pairs in array
+            int res = ArrayStuff.ReversedPairs(new int[] { 4, 5, 6, 2, 3, 1 });
         }
     }
 }
