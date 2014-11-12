@@ -288,7 +288,10 @@ namespace Host
             //bool res = StringStuff.IsAnagrams(s1: "lisa", s2: "aaaa");
 
             // count reversed pairs in array
-            int res = ArrayStuff.ReversedPairs(new int[] { 4, 5, 6, 2, 3, 1 });
+            //int res = ArrayStuff.ReversedPairs(new int[] { 4, 5, 6, 2, 3, 1 });
+
+            // find depth of binary tree
+            int res = TreeStuff.TreeDepth(tree);
         }
     }
 }

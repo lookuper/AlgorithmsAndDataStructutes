@@ -638,5 +638,16 @@ namespace Host
             if (current.Right != null)
                 ConvertNode(current.Right, last);
         }
+
+        internal static int TreeDepth(TreeListNode root)
+        {
+            if (root == null)
+                return 0;
+
+            int left = TreeDepth(root.Left);
+            int right = TreeDepth(root.Right);
+
+            return left > right ? left + 1 : right + 1;
+        }
     }
 }
