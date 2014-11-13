@@ -291,7 +291,10 @@ namespace Host
             //int res = ArrayStuff.ReversedPairs(new int[] { 4, 5, 6, 2, 3, 1 });
 
             // find depth of binary tree
-            int res = TreeStuff.TreeDepth(tree);
+            // int res = TreeStuff.TreeDepth(tree);
+
+            // check if a binary tree is balanced
+            bool res = TreeStuff.IsBalanced(root: tree);
         }
     }
 }

@@ -649,5 +649,36 @@ namespace Host
 
             return left > right ? left + 1 : right + 1;
         }
+
+        internal static bool IsBalanced(TreeListNode root)
+        {
+            if (root == null)
+                throw new ArgumentNullException();
+
+            int depth = 0;
+            return IsBalanced(root, ref depth);
+        }
+
+        private static bool IsBalanced(TreeListNode root, ref int depth)
+        {
+            if (root == null)
+            {
+                depth = 0;
+                return true;
+            }
+
+            int left =depth, right = depth;
+            if (IsBalanced(root.Left, ref left) && IsBalanced(root.Right, ref right))
+            {
+                int diff = left - right;
+                if (diff <= 1 && diff >= -1)
+                {
+                    depth = 1 + (left > right ? left : right);
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
