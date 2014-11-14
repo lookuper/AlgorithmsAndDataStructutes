@@ -640,5 +640,34 @@ namespace Host
 
             return count;
         }
+
+        internal static bool HasPairWithSum(int[] input, int sum)
+        {
+            if (input == null || input.Length == 0)
+                throw new ArgumentException();
+
+            bool found = false;
+            int behind = 0;
+            int ahead = input.Length - 1;
+
+            while (ahead > behind)
+            {
+                int curSum = input[ahead] + input[behind];
+                if (curSum == sum)
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    if (curSum == sum)
+                        ahead--;
+                    else
+                        behind++;
+                }
+            }
+
+            return found;
+        }
     }
 }

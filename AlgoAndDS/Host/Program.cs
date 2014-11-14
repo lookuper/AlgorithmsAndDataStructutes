@@ -294,7 +294,10 @@ namespace Host
             // int res = TreeStuff.TreeDepth(tree);
 
             // check if a binary tree is balanced
-            bool res = TreeStuff.IsBalanced(root: tree);
+            //bool res = TreeStuff.IsBalanced(root: tree);
+
+            // sum in sorted sequence
+            bool res = ArrayStuff.HasPairWithSum(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, sum: 10);
         }
     }
 }
