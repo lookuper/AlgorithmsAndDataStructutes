@@ -297,7 +297,10 @@ namespace Host
             //bool res = TreeStuff.IsBalanced(root: tree);
 
             // sum in sorted sequence
-            bool res = ArrayStuff.HasPairWithSum(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, sum: 10);
+            //bool res = ArrayStuff.HasPairWithSum(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, sum: 10);
+
+            // check wheter array contains three numbers whose sum is 0
+            bool res = ArrayStuff.HasTripleSum(input:new int[] {2,3,5,1,6,7,-5});
         }
     }
 }

@@ -669,5 +669,61 @@ namespace Host
 
             return found;
         }
+
+        internal static bool HasTripleSum(int[] input)
+        {
+            if (input == null)
+                throw new ArgumentNullException();
+
+            bool found = false;
+            if (input.Length < 3)
+                return found;
+
+            Array.Sort(input);
+            for (int i = 0; i < input.Length; i++)
+            {
+                int sum = -input[i];
+                found = HasPairWithSum(input, sum, i);
+
+                if (found)
+                    break;
+            }
+
+            return found;
+        }
+
+        private static bool HasPairWithSum(int[] input, int sum, int excludedIndex)
+        {
+            if (input == null || input.Length == 0)
+                throw new ArgumentException();
+
+            bool found = false;
+            int behind = 0;
+            int ahead = input.Length - 1;
+
+            while (ahead > behind)
+            {
+                if (ahead == excludedIndex)
+                    ahead--;
+                if (behind == excludedIndex)
+                    behind++;
+
+                int curSum = input[ahead] + input[behind];
+                if (curSum == sum)
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    if (curSum == sum)
+                        ahead--;
+                    else
+                        behind++;
+                }
+            }
+
+            return found;
+        }
     }
 }
