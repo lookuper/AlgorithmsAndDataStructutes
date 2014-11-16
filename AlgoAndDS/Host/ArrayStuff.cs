@@ -725,5 +725,43 @@ namespace Host
 
             return found;
         }
+
+        internal static void FindContiniusSequence(int sum)
+        {
+            if (sum < 3)
+                return;
+
+            int small = 1;
+            int big = 2;
+            int mid = (1 + sum) / 2;
+            int curSum = small + big;
+
+            while (small < mid)
+            {
+                if (curSum == sum)
+                    PrintContiniusSequence(small, big);
+
+                while (curSum > sum && small < mid)
+                {
+                    curSum = curSum - small;
+                    small++;
+                    if (curSum == sum)
+                        PrintContiniusSequence(small, big);
+                }
+
+                big++;
+                curSum = curSum + big;
+            }
+        }
+
+        private static void PrintContiniusSequence(int small, int big)
+        {
+            for (int i = small; i <= big; i++)
+            {
+                Console.Write(i + " ");
+            }
+
+            Console.WriteLine();
+        }
     }
 }
