@@ -303,7 +303,10 @@ namespace Host
             //bool res = ArrayStuff.HasTripleSum(input:new int[] {2,3,5,1,6,7,-5});
 
             // print all sequence with continius numbers into sum s
-            ArrayStuff.FindContiniusSequence(sum: 15);
+            //ArrayStuff.FindContiniusSequence(sum: 15);
+
+            // reverse order of words in sequence
+            string res = StringStuff.ReverseWordsInSentence(data: "reverse order of words in sequence");
         }
     }
 }

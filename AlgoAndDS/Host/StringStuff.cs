@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace Host
 {
@@ -221,6 +222,52 @@ namespace Host
             }
 
             return true;
+        }
+
+        internal static string ReverseWordsInSentence(string data)
+        {
+            if (String.IsNullOrEmpty(data))
+                throw new ArgumentException();
+
+            Reverse(ref data, 0, data.Length-1);
+            int begin = 0;
+            int end = 0;
+
+            while (begin != data.Length)
+            {
+                if (Char.IsWhiteSpace(data[begin]))
+                {
+                    begin++;
+                    end++;
+                }
+                else
+                {
+                    if (Char.IsWhiteSpace(data[end]) || end == data.Length-1)
+                    {
+                        Reverse(ref data, begin, end);
+                        begin = ++end;
+                    }
+                    else
+                    {
+                        end++;
+                    }
+                }
+            }
+
+            return data;
+        }
+
+        private static void Reverse(ref string data, int start, int end)
+        {
+            var input = data.ToCharArray();
+            while (start < end)
+            {
+                Generic.Swap<Char>(ref input[start], ref input[end]);
+                start++;
+                end--;
+            }
+
+            data = new String(input);
         }
     }
 }
