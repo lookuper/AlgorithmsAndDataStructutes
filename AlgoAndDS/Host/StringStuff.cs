@@ -269,5 +269,29 @@ namespace Host
 
             data = new String(input);
         }
+
+        internal static void LeftRotation(string str, int n)
+        {
+            if (str == null)
+                throw new ArgumentNullException();
+
+            int length = str.Length;
+            if (length > 0 && n > 0 && n < length)
+            {
+                int firstStart = 0;
+                int firstEnd = n - 1;
+                int secondStart = n;
+                int secondEnd = length - 1;
+
+                // reverse first n chars
+                Reverse(ref str, firstStart, firstEnd);
+
+                // reverse other chars
+                Reverse(ref str, secondStart, secondEnd);
+
+                // reverse whole string
+                Reverse(ref str, firstStart, secondEnd);
+            }
+        }
     }
 }

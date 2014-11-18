@@ -306,7 +306,10 @@ namespace Host
             //ArrayStuff.FindContiniusSequence(sum: 15);
 
             // reverse order of words in sequence
-            string res = StringStuff.ReverseWordsInSentence(data: "reverse order of words in sequence");
+            // string res = StringStuff.ReverseWordsInSentence(data: "reverse order of words in sequence");
+
+            // string left rotation
+            StringStuff.LeftRotation(str: "abcde", n: 2);
         }
     }
 }
