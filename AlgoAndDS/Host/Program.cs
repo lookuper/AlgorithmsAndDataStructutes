@@ -312,7 +312,10 @@ namespace Host
             //StringStuff.LeftRotation(str: "abcde", n: 2);
 
             // probability of dice points
-            Generic.PrintProbability(number: 2);
+            //Generic.PrintProbability(number: 2);
+
+            // last number in list of n in m
+            int res = Generic.LastRemaning(n:1, m:20);
         }
     }
 }
