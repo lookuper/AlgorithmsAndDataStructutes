@@ -309,7 +309,10 @@ namespace Host
             // string res = StringStuff.ReverseWordsInSentence(data: "reverse order of words in sequence");
 
             // string left rotation
-            StringStuff.LeftRotation(str: "abcde", n: 2);
+            //StringStuff.LeftRotation(str: "abcde", n: 2);
+
+            // probability of dice points
+            Generic.PrintProbability(number: 2);
         }
     }
 }
