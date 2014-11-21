@@ -763,5 +763,22 @@ namespace Host
 
             Console.WriteLine();
         }
+
+        internal static void PushZerosToEnd(int[] input)
+        {
+            int n = input.Length;
+            int count = 0;
+            
+            for (int i = 0; i < n; i++)
+            {
+                if (input[i] != 0)
+                    input[count++] = input[i];
+            }
+
+            while (count < n)
+            {
+                input[count++] = 0;
+            }
+        }
     }
 }

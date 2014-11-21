@@ -318,7 +318,11 @@ namespace Host
             //int res = Generic.LastRemaning(n:1, m:20);
 
             // swap every pair of nodes
-            ListNode res = LinkedListStuff.SwapEveryPair(head);
+            //ListNode res = LinkedListStuff.SwapEveryPair(head);
+
+            // move all zeros to the end of array
+            var input = new int[] { 1, 0, 2, 0 };
+            ArrayStuff.PushZerosToEnd(input);
         }
     }
 }
