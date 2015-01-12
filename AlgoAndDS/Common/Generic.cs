@@ -238,5 +238,23 @@ namespace Common
 
             return last;
         }
+        
+        public static double SquareRoot(double number)
+        {
+        	if (number < 0)
+        		throw new ArgumentException("number < 0");
+        		
+        	double x = number;
+        	double y = 1;
+        	double e = 0.000000001; // precision
+        	
+        	while ((x-y) > e)
+        	{
+        		x = (x + y) / 2;
+        		y = number / x;
+        	}
+        	
+        	return x;
+        }
     }
 }
