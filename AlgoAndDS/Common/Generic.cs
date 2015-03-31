@@ -61,6 +61,26 @@ namespace Common
 
             return (int)angle;
         }
+        
+        public static bool IsPrime(int n)
+        {
+	        if ((n == 2) || (n == 3))
+	            return true;
+
+	        int iResidum = n % 6;
+	        if ((iResidum == 0) || (iResidum == 2) || (iResidum == 3) || (iResidum == 4))
+		        return false;
+
+	        for(int i=1; 6*i <= Math.Sqrt(i)+1; ++i)
+	        {
+		        if (n % (6*i-1) == 0)
+			        return false;
+		        if (n % (6*i+1) == 0)
+		            return false;
+	        }
+
+    	    return true;
+        }
 
         public static bool IsRectanglesOverlap(Point l1, Point r1, Point l2, Point r2)
         {
