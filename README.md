@@ -1,2 +1,2 @@
-Few interesting algorithms and data structutes that I found on the Internet.
+Few interesting algorithms and data structutes that some companies asked on interview.
 ===========================
