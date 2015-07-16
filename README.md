@@ -82,7 +82,7 @@
 * print tree from top to bottom
 * print tree from top to bottom each level in line
 * print tree in zig-zag order
-* print tree in zig-zag order
+* find path in binary tree
 * build binary tree with preorder and inorder
 * check if array is post-order sequence of BST
 * convert bst to double-linked list
