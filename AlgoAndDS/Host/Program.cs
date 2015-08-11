@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using Host.DS;
 
 namespace Host
 {
@@ -19,7 +20,7 @@ namespace Host
             var tail = new ListNode(5) { Next = new ListNode(6) { Next = new ListNode(7) } };
             var head1 = new ListNode(1) { Next = tail };
             var head2 = new ListNode(2) { Next = new ListNode(3) { Next = tail } };
-            var intersectNode = LinkedListStuff.FindIntersectionNode(head1, head2);
+            //var intersectNode = LinkedListStuff.FindIntersectionNode(head1, head2);
 
             // find Kth node in tree
             var tree = new TreeListNode(5)
@@ -171,7 +172,7 @@ namespace Host
             // find if list has a loop
             //head.Next.Next.Next = head.Next;
             //bool res = LinkedListStuff.FindLoop(head);
-            
+
             // find start loop node in list
             //ListNode res = LinkedListStuff.FindEntyLoopNode(head);
             //bool res = TreeStuff.IsBST(tree, int.MinValue, int.MaxValue);
@@ -321,8 +322,18 @@ namespace Host
             //ListNode res = LinkedListStuff.SwapEveryPair(head);
 
             // move all zeros to the end of array
-            var input = new int[] { 1, 0, 2, 0 };
-            ArrayStuff.PushZerosToEnd(input);
+            //var input = new int[] { 1, 0, 2, 0 };
+            //ArrayStuff.PushZerosToEnd(input);
+
+            // DS part
+            // MaxHeap / MinHeap
+            BinaryHeap<int> heap = new MinHeap<int>();
+            heap.Add(2);
+            heap.Add(4);
+            heap.Add(1);
+            heap.Add(3);
+
+            var min = heap.Pop();
         }
     }
 }
