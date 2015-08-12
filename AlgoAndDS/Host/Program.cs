@@ -327,13 +327,14 @@ namespace Host
 
             // DS part
             // MaxHeap / MinHeap
-            BinaryHeap<int> heap = new MinHeap<int>();
-            heap.Add(2);
-            heap.Add(4);
-            heap.Add(1);
-            heap.Add(3);
+            //BinaryHeap<int> heap = new MinHeap<int>();
+            //heap.Add(2);
+            //heap.Add(4);
+            //heap.Add(1);
+            //heap.Add(3);
+            //var min = heap.Pop();
 
-            var min = heap.Pop();
+            //
         }
     }
 }
