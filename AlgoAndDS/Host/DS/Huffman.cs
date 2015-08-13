@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,7 +54,30 @@ namespace Host.DS
         }
     }
 
-    public class Huffman
+    public class HuffmanTree
     {
+        private IList<HuffmanNode> nodes = new List<HuffmanNode>();
+        public HuffmanNode Root { get; set; }
+        public IDictionary<char, int> Frequencies = new Dictionary<char, int>();
+
+        public void Build(string source)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BitArray Encode(string source)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Decode(BitArray bits)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsLeaf(HuffmanNode node)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
