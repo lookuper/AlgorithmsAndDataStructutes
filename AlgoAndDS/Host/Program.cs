@@ -334,7 +334,12 @@ namespace Host
             //heap.Add(3);
             //var min = heap.Pop();
 
-            //
+            // Huffman tree
+            //string input = "AAABBC";
+            //var hTree = new HuffmanTree();
+            //hTree.Build(input);
+            //var encoded = hTree.Encode(input);
+            //var decoded = hTree.Decode(encoded);
         }
     }
 }
