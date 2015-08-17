@@ -45,6 +45,7 @@
     <Compile Include="ArrayStuff.cs" />
     <Compile Include="DS\BinaryHeap.cs" />
     <Compile Include="DS\Huffman.cs" />
+    <Compile Include="DS\UnionFind.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringStuff.cs" />

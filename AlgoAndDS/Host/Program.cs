@@ -340,6 +340,14 @@ namespace Host
             //hTree.Build(input);
             //var encoded = hTree.Encode(input);
             //var decoded = hTree.Decode(encoded);
+
+            // Union Find
+            var union = new UnionFind<int>();
+            union.Add(1);
+            union.Add(3);
+            union.Add(4);
+
+            union.IsSameGroup(3, 5);
         }
     }
 }
