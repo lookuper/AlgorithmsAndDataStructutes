@@ -341,13 +341,18 @@ namespace Host
             //var encoded = hTree.Encode(input);
             //var decoded = hTree.Decode(encoded);
 
-            // Union Find
-            var union = new UnionFind<int>();
-            union.Add(1);
-            union.Add(3);
-            union.Add(4);
+            // Union Find #1
+            //var union = new UnionFind<int>();
+            //union.Add(1);
+            //union.Add(3);
+            //union.Add(4);
+            //union.IsSameGroup(3, 5);
 
-            union.IsSameGroup(3, 5);
+            // Disjoin set
+            //var disSet = new DisjointSets();
+            //disSet.AddElements(5);
+            //disSet.Union(2, 3);
+            //var setId = disSet.FindSet(3);
         }
     }
 }
