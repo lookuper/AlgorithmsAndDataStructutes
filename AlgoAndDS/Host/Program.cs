@@ -353,6 +353,12 @@ namespace Host
             //disSet.AddElements(5);
             //disSet.Union(2, 3);
             //var setId = disSet.FindSet(3);
+
+            //Trie
+            Trie trie = new Trie();
+            var tRoot = new Trie.TrieNode();
+            trie.InsertString(tRoot, "ABC");
+            trie.PrintSorted(tRoot, "");
         }
     }
 }
