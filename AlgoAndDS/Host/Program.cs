@@ -354,11 +354,21 @@ namespace Host
             //disSet.Union(2, 3);
             //var setId = disSet.FindSet(3);
 
-            //Trie
-            Trie trie = new Trie();
-            var tRoot = new Trie.TrieNode();
-            trie.InsertString(tRoot, "ABC");
-            trie.PrintSorted(tRoot, "");
+            //Trie (simple)
+            //Trie trie = new Trie();
+            //var tRoot = new Trie.TrieNode();
+            //trie.InsertString(tRoot, "ABC");
+            //trie.PrintSorted(tRoot, "");
+
+            // Trie (complex)
+            Trie2 trie = new Trie2();
+            trie.Add("Call");
+            trie.Add("Cat");
+            trie.Add("Catter");
+            trie.Add("Bat");
+            trie.Add("Bake");
+
+            var res = trie.Match("ga", int.MaxValue);
         }
     }
 }
