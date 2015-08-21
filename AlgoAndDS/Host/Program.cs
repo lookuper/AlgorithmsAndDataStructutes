@@ -361,14 +361,19 @@ namespace Host
             //trie.PrintSorted(tRoot, "");
 
             // Trie (complex)
-            Trie2 trie = new Trie2();
-            trie.Add("Call");
-            trie.Add("Cat");
-            trie.Add("Catter");
-            trie.Add("Bat");
-            trie.Add("Bake");
+            //Trie2 trie = new Trie2();
+            //trie.Add("Call");
+            //trie.Add("Cat");
+            //trie.Add("Catter");
+            //trie.Add("Bat");
+            //trie.Add("Bake");
+            //var res = trie.Match("ga", int.MaxValue);
 
-            var res = trie.Match("ga", int.MaxValue);
+            // Ternary Tree
+            var tTree = new TernaryTree();
+            tTree.Add("ABC");
+            tTree.Add("AB");
+            var res = tTree.Contains("ABC");
         }
     }
 }

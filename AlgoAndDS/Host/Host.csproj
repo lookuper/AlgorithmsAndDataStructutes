@@ -45,6 +45,7 @@
     <Compile Include="ArrayStuff.cs" />
     <Compile Include="DS\BinaryHeap.cs" />
     <Compile Include="DS\Huffman.cs" />
+    <Compile Include="DS\TernaryTree.cs" />
     <Compile Include="DS\Trie.cs" />
     <Compile Include="DS\UnionFind.cs" />
     <Compile Include="Program.cs" />
