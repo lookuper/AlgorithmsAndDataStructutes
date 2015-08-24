@@ -102,6 +102,136 @@ namespace Host.DS
             }
         }
 
+        private void Case4P(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            sibling.Red = parent.Red;
+            sibling.Left.Red = false;
+            parent.Red = false;
+
+            if (grandParent != null)
+            {
+                if (parentToRight)
+                {
+                    RightRotate(ref parent);
+                    grandParent.Right = parent;
+                }
+                else
+                {
+                    RightRotate(ref parent);
+                    grandParent.Left = parent;
+                }
+            }
+            else
+            {
+                RightRotate(ref parent);
+                Root = parent;
+            }
+        }
+
+        private void Case4(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            sibling.Red = parent.Red;
+            sibling.Right.Red = false;
+            parent.Red = false;
+
+            if (grandParent != null)
+            {
+                if (parentToRight)
+                {
+                    LeftRotate(ref parent);
+                    grandParent.Right = parent;
+                }
+                else
+                {
+                    LeftRotate(ref parent);
+                    grandParent.Left = parent;
+                }
+            }
+            else
+            {
+                LeftRotate(ref parent);
+                Root = parent;
+            }
+        }
+
+        private void Case3P(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            if (parent.Right == curNode)
+            {
+                sibling.Red = true;
+                sibling.Right.Red = false;
+                LeftRotate(ref sibling);
+                parent.Left = sibling;
+            }
+            Case4P(curNode, parent, sibling, grandParent);
+        }
+
+        private void Case3(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            if (parent.Left == curNode)
+            {
+                sibling.Red = true;
+                sibling.Left.Red = false;
+                RightRotate(ref sibling);
+                parent.Right = sibling;
+            }
+            Case4(curNode, parent, sibling, grandParent);
+        }
+
+        private void Case2B(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            if (sibling != null)
+                sibling.Red = !sibling.Red;
+
+            curNode = parent;
+            curNode.Red = !curNode.Red;
+        }
+
+        private void Case2A(Node curNode, Node parent, Node sibling, Node grandParent)
+        {
+            if (sibling != null)
+                sibling.Red = !sibling.Red;
+
+            curNode = parent;
+            if (curNode != Root)
+            {
+                parent = curNode.Parent;
+                GetParentGrandParentSibling(curNode, parent, out sibling, out grandParent);
+
+                Node siblingLeftChild = null;
+                Node siblingRightChild = null;
+
+                if (sibling != null && sibling.Left != null)
+                    siblingLeftChild = sibling.Left;
+                if (sibling != null && sibling.Right != null)
+                    siblingRightChild = sibling.Right;
+
+                bool siblingRed = sibling != null && sibling.Red;
+                bool siblingLeftRed = siblingLeftChild != null && siblingLeftChild.Red;
+                bool siblingRightRed = siblingRightChild != null && siblingRightChild.Red;
+
+                if (parent != null && !parent.Red && !siblingRed && !siblingLeftRed && !siblingRightRed)
+                {
+                    Case2A(curNode, parent, sibling, grandParent);
+                } else if (parent != null && parent.Red && !sibling.Red && !siblingLeftRed && !siblingRightRed)
+                {
+                    Case2B(curNode, parent, sibling, grandParent);
+                } else if (siblingToRight && !siblingRed &&  siblingLeftRed && !siblingRightRed)
+                {
+                    Case3(curNode, parent, sibling, grandParent);
+                } else if (!siblingToRight && !siblingRed && !siblingLeftRed && siblingRightRed)
+                {
+                    Case3P(curNode, parent, sibling, grandParent);
+                } else if (siblingToRight && !siblingRed && siblingRightRed)
+                {
+                    Case4(curNode, parent, sibling, grandParent);
+                } else if (!siblingToRight && !siblingRed && siblingLeftRed)
+                {
+                    Case4P(curNode, parent, sibling, grandParent);
+                }
+            }
+        }
+
         private void Case1(Node curNode, Node parent, Node sibling, Node grandParent)
         {
             if (siblingToRight)
@@ -451,9 +581,22 @@ namespace Host.DS
             }
         }
 
-        private void RightRotate(ref Node grandParent)
+        private void RightRotate(ref Node node)
         {
-            throw new NotImplementedException();
+            var parent = node.Parent;
+            var left = node.Left;
+            var temp = node.Right;
+
+            left.Right = node;
+            node.Parent = left;
+            node.Left = temp;
+
+            if (temp != null)
+                temp.Parent = node;
+            if (left != null)
+                left.Parent = parent;
+
+            node = left;
         }
 
         private void LeftRotate(ref Node node)

@@ -370,10 +370,16 @@ namespace Host
             //var res = trie.Match("ga", int.MaxValue);
 
             // Ternary Tree
-            var tTree = new TernaryTree();
-            tTree.Add("ABC");
-            tTree.Add("AB");
-            var res = tTree.Contains("ABC");
+            //var tTree = new TernaryTree();
+            //tTree.Add("ABC");
+            //tTree.Add("AB");
+            //var res = tTree.Contains("ABC");
+
+            // Red-Black Tree
+            var rbTree = new RedBlackTree<int>();
+            rbTree.Add(1);
+            rbTree.Add(2);
+            rbTree.Add(3);
         }
     }
 }
