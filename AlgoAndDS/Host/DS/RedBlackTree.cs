@@ -25,6 +25,7 @@ namespace Host.DS
             if (NumberElements > 2)
             {
                 Node parent, grandParent, greatGrandParent;
+
                 GetNodesAbove(insertedNode, out parent, out grandParent, out greatGrandParent);
                 FixTreeAfterInsertion(insertedNode, parent, grandParent, greatGrandParent);
             }

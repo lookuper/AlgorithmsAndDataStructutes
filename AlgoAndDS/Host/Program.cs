@@ -380,6 +380,10 @@ namespace Host
             rbTree.Add(1);
             rbTree.Add(2);
             rbTree.Add(3);
+            rbTree.Add(7);
+            rbTree.Add(9);
+            rbTree.Add(10);
+            rbTree.Remove(7);
         }
     }
 }
