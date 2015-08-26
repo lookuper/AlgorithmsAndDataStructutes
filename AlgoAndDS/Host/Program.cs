@@ -376,14 +376,20 @@ namespace Host
             //var res = tTree.Contains("ABC");
 
             // Red-Black Tree
-            var rbTree = new RedBlackTree<int>();
-            rbTree.Add(1);
-            rbTree.Add(2);
-            rbTree.Add(3);
-            rbTree.Add(7);
-            rbTree.Add(9);
-            rbTree.Add(10);
-            rbTree.Remove(7);
+            //var rbTree = new RedBlackTree<int>();
+            //rbTree.Add(1);
+            //rbTree.Add(2);
+            //rbTree.Add(3);
+            //rbTree.Add(7);
+            //rbTree.Add(9);
+            //rbTree.Add(10);
+            //rbTree.Remove(7);
+
+            // recursive AVL tree
+            var avlTree = new AVLTree<int>();
+            avlTree.Add(1);
+            avlTree.Add(2);
+            avlTree.Add(3);
         }
     }
 }
