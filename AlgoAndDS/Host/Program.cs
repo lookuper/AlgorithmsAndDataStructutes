@@ -390,6 +390,7 @@ namespace Host
             avlTree.Add(1);
             avlTree.Add(2);
             avlTree.Add(3);
+            avlTree.Delete(2);
         }
     }
 }

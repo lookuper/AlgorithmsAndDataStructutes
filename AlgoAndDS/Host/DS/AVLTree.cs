@@ -13,6 +13,68 @@ namespace Host.DS
     public class AVLTree<T> where T : IComparable<T>
     {
         private Node root;
+        
+        public void Delete(T item)
+        {
+            Delete(root, item);
+        }
+
+        private Node Delete(Node current, T item)
+        {
+            if (current == null)
+                return null;
+
+            Node parent;
+            if (item.CompareTo(current.Data) < 0)
+            {
+                current.Left = Delete(current.Left, item);
+
+                if (BalanceFactor(current) == -2)
+                {
+                    if (BalanceFactor(current.Left) <= 0)
+                        current = RotateRR(current);
+                    else
+                        current = RotateRL(current);
+                }
+            }
+            else if (item.CompareTo(current.Data) > 0)
+            {
+                current.Right = Delete(current.Right, item);
+                if (BalanceFactor(current) == 2)
+                {
+                    if (BalanceFactor(current.Right) <= 0)
+                        current = RotateLL(current);
+                    else
+                        current = RotateLR(current);
+                }
+            }
+            else
+            {
+                if (current.Right != null)
+                {
+                    parent = current.Right;
+                    while (parent.Left != null)
+                    {
+                        parent = parent.Left;
+                    }
+
+                    current.Data = parent.Data;
+                    current.Right = Delete(current.Right, parent.Data);
+
+                    if (BalanceFactor(current) == 2)
+                    {
+                        if (BalanceFactor(current.Left) <= 0)
+                            current = RotateLL(current);
+                        else
+                            current = RotateLR(current);
+                    }
+                }
+                else
+                    return current.Left;
+            
+            }
+            return current;
+        }
 
         public void Add(T data)
         {
