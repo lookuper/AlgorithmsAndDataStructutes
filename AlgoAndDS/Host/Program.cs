@@ -386,11 +386,17 @@ namespace Host
             //rbTree.Remove(7);
 
             // recursive AVL tree
-            var avlTree = new AVLTree<int>();
-            avlTree.Add(1);
-            avlTree.Add(2);
-            avlTree.Add(3);
-            avlTree.Delete(2);
+            //var avlTree = new AVLTree<int>();
+            //avlTree.Add(1);
+            //avlTree.Add(2);
+            //avlTree.Add(3);
+            //avlTree.Delete(2);
+
+            // Segment tree
+            int[] elements = { 1, 2, 3};
+            var segmentTree = new SegmentTree(elements.Length);
+            segmentTree.ConstructSegmentTree(elements);
+            var sum = segmentTree.GetSum(0, 2);
         }
     }
 }
