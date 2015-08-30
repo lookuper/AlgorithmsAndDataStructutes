@@ -393,10 +393,16 @@ namespace Host
             //avlTree.Delete(2);
 
             // Segment tree
-            int[] elements = { 1, 2, 3};
-            var segmentTree = new SegmentTree(elements.Length);
-            segmentTree.ConstructSegmentTree(elements);
-            var sum = segmentTree.GetSum(0, 2);
+            //int[] elements = { 1, 2, 3};
+            //var segmentTree = new SegmentTree(elements.Length);
+            //segmentTree.ConstructSegmentTree(elements);
+            //var sum = segmentTree.GetSum(0, 2);
+
+            // Binary Indexed Tree
+            var elements = new[] { 1, 2, 3, 0};
+            var biTree = new BinaryIndexedTree(elements);
+            var sum = biTree.Sum(0, 2);
+            var min = biTree.GetMin(3);
         }
     }
 }
