@@ -399,10 +399,15 @@ namespace Host
             //var sum = segmentTree.GetSum(0, 2);
 
             // Binary Indexed Tree
-            var elements = new[] { 1, 2, 3, 0};
-            var biTree = new BinaryIndexedTree(elements);
-            var sum = biTree.Sum(0, 2);
-            var min = biTree.GetMin(3);
+            //var elements = new[] { 1, 2, 3, 0};
+            //var biTree = new BinaryIndexedTree(elements);
+            //var sum = biTree.Sum(0, 2);
+
+            // Suffix Array
+            var input = "mississippi";
+            var suffixArray = SuffixArray.Build(input);
+            var pattern = "i";
+            var result = suffixArray.Search(pattern);
         }
     }
 }
