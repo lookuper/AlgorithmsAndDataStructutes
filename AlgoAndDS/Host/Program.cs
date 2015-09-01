@@ -404,10 +404,14 @@ namespace Host
             //var sum = biTree.Sum(0, 2);
 
             // Suffix Array
-            var input = "mississippi";
-            var suffixArray = SuffixArray.Build(input);
-            var pattern = "i";
-            var result = suffixArray.Search(pattern);
+            //var input = "mississippi";
+            //var suffixArray = SuffixArray.Build(input);
+            //var pattern = "i";
+            //var result = suffixArray.Search(pattern);
+
+            // Sparse Matrix
+            var matrix = new SparseMatrix<int>(512, 512);
+            matrix[1, 1] = 1;
         }
     }
 }

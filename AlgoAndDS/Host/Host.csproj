@@ -49,6 +49,7 @@
     <Compile Include="DS\Huffman.cs" />
     <Compile Include="DS\RedBlackTree.cs" />
     <Compile Include="DS\SegmentTree.cs" />
+    <Compile Include="DS\SparseMatrix.cs" />
     <Compile Include="DS\SuffixArray.cs" />
     <Compile Include="DS\TernaryTree.cs" />
     <Compile Include="DS\Trie.cs" />
