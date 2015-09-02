@@ -11,6 +11,28 @@ namespace Host
 {
     public class StringStuff
     {
+        internal static String CompressDuplicates(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                throw new ArgumentException(nameof(input));
+
+            var resultString = new StringBuilder();
+            var sortedInput = new char[input.Length];
+            Array.Copy(input.ToCharArray(), sortedInput, input.Length);
+            Array.Sort(sortedInput);
+
+            for (int i = 1; i < sortedInput.Length-1; i++)
+            {
+                var cur = sortedInput[i];
+                var prev = sortedInput[i - 1];
+
+                if (cur != prev)
+                    resultString.Append(cur);
+            }
+
+            return resultString.ToString();
+        }
+
         internal static String FirstNonRepeatingChar(string input)
         {
             var dict = new OrderedDictionary();
