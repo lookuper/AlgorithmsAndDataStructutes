@@ -9,6 +9,31 @@ namespace Host
 {
     public class ArrayStuff
     {
+        internal static int[] CompressDuplicates(int[] input)
+        {
+            if (input == null || input.Length == 0)
+                throw new ArgumentException(nameof(input));
+
+            var res = new List<int>();
+            var sortedInput = new int[input.Length];
+
+            Array.Copy(input, sortedInput, input.Length);
+            Array.Sort(sortedInput);
+
+            for (int i = 1; i < sortedInput.Length - 1; i++)
+            {
+                var cur = sortedInput[i];
+                var prev = sortedInput[i - 1];
+
+                if (cur != prev)
+                    res.Add(cur);
+            }
+
+            // not finished            
+
+            return res.ToArray();
+        }
+
         internal static int FirstDuplicate(int[] array)
         {
             if (array == null || array.Length == 0)

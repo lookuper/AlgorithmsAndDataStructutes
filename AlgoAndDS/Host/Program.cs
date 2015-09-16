@@ -410,8 +410,14 @@ namespace Host
             //var result = suffixArray.Search(pattern);
 
             // Sparse Matrix
-            var matrix = new SparseMatrix<int>(512, 512);
-            matrix[1, 1] = 1;
+            //var matrix = new SparseMatrix<int>(512, 512);
+            //matrix[1, 1] = 1;
+
+            // Compress duplicates
+            //ArrayStuff.CompressDuplicates(new[] { 1, 1, 1, 1 });
+
+            // Convert number into words
+            var res = StringStuff.ConvertNumberToWords(1234556);
         }
     }
 }

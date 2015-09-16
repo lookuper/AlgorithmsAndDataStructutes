@@ -11,26 +11,75 @@ namespace Host
 {
     public class StringStuff
     {
-        internal static String CompressDuplicates(string input)
+        private static String[] lowNames = { "zero", "one", "two", "three", "four", "five", "six", "seven",
+        "eight","nine","ten","eleven","twelve", "thriteen","fourteen","fiveteen","sixteen","seventenn", "eighteen","nineteen"};
+        private static String[] tensNames = { "twenty", "thirty", "forty", "sixty", "seventy", "eighty", "ninety" };
+        private static String[] bigNames = { "thousand", "million", "billion" };
+
+        internal static String ConvertNumberToWords(int number)
         {
-            if (String.IsNullOrEmpty(input))
-                throw new ArgumentException(nameof(input));
-
-            var resultString = new StringBuilder();
-            var sortedInput = new char[input.Length];
-            Array.Copy(input.ToCharArray(), sortedInput, input.Length);
-            Array.Sort(sortedInput);
-
-            for (int i = 1; i < sortedInput.Length-1; i++)
+            if (number < 0)
             {
-                var cur = sortedInput[i];
-                var prev = sortedInput[i - 1];
-
-                if (cur != prev)
-                    resultString.Append(cur);
+                return "minus " + ConvertNumberToWords(-number);
             }
 
-            return resultString.ToString();
+            if (number <= 999)
+            {
+                return Convert999(number);
+            }
+
+            String s = null;
+            int t = 0;
+            while (number > 0)
+            {
+                if (number % 1000 != 0)
+                {
+                    string s2 = Convert999(number % 1000);
+                    if (t > 0)
+                    {
+                        s2 = s2 + " " + bigNames[t - 1];
+                    }
+                    if (s == null)
+                    {
+                        s = s2;
+                    }
+                    else
+                    {
+                        s = s2 + ", " + s;
+                    }
+                }
+                number /= 1000;
+                t++;
+            }
+
+            return s;
+        }
+
+        private static string Convert999(int number)
+        {
+            string s1 = lowNames[number / 100] + " hundred";
+            string s2 = Convert99(number % 100);
+
+            if (number <= 99)
+                return s2;
+            else if (number % 100 == 0)
+            {
+                return s1;
+            }
+            else
+                return s1 + " " + s2;        
+        }
+
+        private static string Convert99(int number)
+        {
+            if (number < 20)
+                return lowNames[number];
+
+            string s = tensNames[number / 10 - 2];
+            if (number % 10 == 0)
+                return s;
+
+            return s + "-" + lowNames[number % 10];
         }
 
         internal static String FirstNonRepeatingChar(string input)
