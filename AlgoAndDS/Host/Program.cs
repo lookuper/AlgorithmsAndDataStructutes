@@ -417,7 +417,11 @@ namespace Host
             //ArrayStuff.CompressDuplicates(new[] { 1, 1, 1, 1 });
 
             // Convert number into words
-            var res = StringStuff.ConvertNumberToWords(1234556);
+            //var res = StringStuff.ConvertNumberToWords(1234556);
+
+            // Suffix tree
+            var suffixTree = new SuffixTree("mississipi");
+            var res = suffixTree.Find("ss").ToList();
         }
     }
 }
