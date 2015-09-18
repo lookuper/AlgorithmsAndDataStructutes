@@ -53,6 +53,7 @@
     <Compile Include="DS\SuffixArray.cs" />
     <Compile Include="DS\SuffixTree.cs" />
     <Compile Include="DS\TernaryTree.cs" />
+    <Compile Include="DS\Treap.cs" />
     <Compile Include="DS\Trie.cs" />
     <Compile Include="DS\UnionFind.cs" />
     <Compile Include="Program.cs" />
