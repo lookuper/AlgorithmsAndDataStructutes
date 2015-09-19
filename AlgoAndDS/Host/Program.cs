@@ -420,8 +420,17 @@ namespace Host
             //var res = StringStuff.ConvertNumberToWords(1234556);
 
             // Suffix tree
-            var suffixTree = new SuffixTree("mississipi");
-            var res = suffixTree.Find("ss").ToList();
+            //var suffixTree = new SuffixTree("mississipi");
+            //var res = suffixTree.Find("ss").ToList();
+
+            // Treap
+            var treap = new Treap<int>();
+            treap.Add(1);
+            treap.Add(2);
+            treap.Add(3);
+            treap.Add(4);
+
+            treap.Contains(4);
         }
     }
 }
