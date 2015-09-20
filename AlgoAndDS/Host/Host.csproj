@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayStuff.cs" />
+    <Compile Include="DS\AhoCorasik.cs" />
     <Compile Include="DS\AVLTree.cs" />
     <Compile Include="DS\BinaryHeap.cs" />
     <Compile Include="DS\BinaryIndexedTree.cs" />

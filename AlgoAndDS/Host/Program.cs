@@ -424,13 +424,24 @@ namespace Host
             //var res = suffixTree.Find("ss").ToList();
 
             // Treap
-            var treap = new Treap<int>();
-            treap.Add(1);
-            treap.Add(2);
-            treap.Add(3);
-            treap.Add(4);
+            //var treap = new Treap<int>();
+            //treap.Add(1);
+            //treap.Add(2);
+            //treap.Add(3);
+            //treap.Add(4);
+            //treap.Contains(4);
 
-            treap.Contains(4);
+            // Aho-Corasik
+            var ac = new AhoCorasik();
+            ac.Add("hello");
+            ac.Add("world");
+
+            ac.Build();
+            string text = "hello and welcome to this beautiful world!";
+            foreach (string word in ac.Find(text))
+            {
+                Console.WriteLine(word);
+            }
         }
     }
 }
