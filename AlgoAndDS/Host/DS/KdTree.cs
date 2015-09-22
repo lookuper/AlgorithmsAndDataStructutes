@@ -24,6 +24,14 @@ namespace Host.DS
         public T[] Coords { get { return this.coords; } }
     }
 
+    public class EmptyTree<TKey, TValue> : IKdTree<TKey, TValue>
+    {
+        public IEnumerable<TValue> Search(Key<TKey> low, Key<TKey> high)
+        {
+            return Enumerable.Empty<TValue>();
+        }
+    }
+
     public class KdTree<TKey, TValue> : IKdTree<TKey, TValue>
     {
         private readonly IComparer<TKey> comparer;
@@ -41,6 +49,23 @@ namespace Host.DS
             this.value = value;
             this.left = left;
             this.right = right;
+        }
+
+        public static IKdTree<TKey, TValue> Build<TKey, TValue>(IComparer<TKey> comparer, IEnumerable<KeyValuePair<Key<TKey>, TValue>> data, int depth = 0)
+        {
+            if (!data.Any())
+                return new EmptyTree<TKey, TValue>();
+
+            int k = data.First().Key.Demensions;
+            int axis = depth % k;
+            var sortedData = data.OrderBy(x => x.Key.Coords[axis]);
+            int medianIndex = sortedData.Count() / 2;
+            var median = sortedData.ElementAt(medianIndex);
+
+            var leftTree = Build(comparer, data.Take(medianIndex), depth + 1);
+            var rightTree = Build(comparer, data.Skip(medianIndex + 1), depth + 1);
+
+            return new KdTree<TKey, TValue>(depth, comparer, median.Key, median.Value, leftTree, rightTree);            
         }
 
         public IEnumerable<TValue> Search(Key<TKey> low, Key<TKey> high)

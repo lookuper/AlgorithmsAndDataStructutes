@@ -432,16 +432,20 @@ namespace Host
             //treap.Contains(4);
 
             // Aho-Corasik
-            var ac = new AhoCorasik();
-            ac.Add("hello");
-            ac.Add("world");
+            //var ac = new AhoCorasik();
+            //ac.Add("hello");
+            //ac.Add("world");
+            //ac.Build();
 
-            ac.Build();
-            string text = "hello and welcome to this beautiful world!";
-            foreach (string word in ac.Find(text))
+            // Kd-Tree
+            var comparer = Comparer<int>.Default;
+            var data = new[]
             {
-                Console.WriteLine(word);
-            }
-        }
+                new KeyValuePair<Key<int>, int>(new Key<int>(new[] {1,2 }),1),
+                new KeyValuePair<Key<int>, int>(new Key<int>(new[] {3,4 }),2),
+            };
+            var kdTree = KdTree<int, int>.Build(comparer, data);
+            var res = kdTree.Search(data.First().Key, data.Last().Key);
+    }
     }
 }
