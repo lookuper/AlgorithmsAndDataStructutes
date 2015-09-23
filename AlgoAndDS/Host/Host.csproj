@@ -49,6 +49,7 @@
     <Compile Include="DS\BinaryIndexedTree.cs" />
     <Compile Include="DS\Huffman.cs" />
     <Compile Include="DS\KdTree.cs" />
+    <Compile Include="DS\LinkCutTree.cs" />
     <Compile Include="DS\RedBlackTree.cs" />
     <Compile Include="DS\SegmentTree.cs" />
     <Compile Include="DS\SparseMatrix.cs" />
