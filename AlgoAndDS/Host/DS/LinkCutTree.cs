@@ -133,18 +133,73 @@ namespace Host.DS
             y.Right = null;
         }
 
-        public static bool Connected(bool[][] g, int u, int v, int p)
+        public static bool Connected(bool[,] g, int u, int v, int p)
         {
             if (u == v)
                 return true;
 
-            for (int i = 0; i < g.Length; i++)
+            for (int i = 0; i < g.Length-1; i++)
             {
-                if (i != p && g[u][i] && Connected(g, i, v, u))
+                if (i != p && g[u,i] && Connected(g, i, v, u))
                     return true;
             }
 
             return false;
+        }
+
+        public static void Start()
+        {
+            var random = new Random();
+
+            for (int step = 0; step < 1000; step++)
+            {
+                int n = random.Next(50) + 1;
+                var g = new bool[n, n];
+                Node[] nodes = new Node[n];
+
+                for (int i = 0; i < n; i++)
+                {
+                    nodes[i] = new Node();
+                }
+
+                for (int query = 0; query < 2000; query++)
+                {
+                    int cmd = random.Next(10);
+                    int u = random.Next(n);
+                    int v = random.Next(n);
+                    Node x = nodes[u];
+                    Node y = nodes[v];
+
+                    if (cmd == 0)
+                    {
+                        MakeRoot(x);
+                        Expose(y);
+
+                        if ((y.Right == x && x.Left == null && x.Right == null) != g[u, v])
+                            throw new InvalidOperationException();
+                        if (y.Right == x && x.Left == null && x.Right == null)
+                        {
+                            Cut(x, y);
+                            g[u, v] = g[v, u] = false;
+                        }
+                    }
+                    else if (cmd == 1)
+                    {
+                        if (Connected(x, y) != Connected(g, u, v, -1))
+                            throw new InvalidOperationException();
+                    } else
+                    {
+                        Expose(x);
+                        if (Connected(x, y) != Connected(g, u, v, -1))
+                            throw new InvalidOperationException();
+                        if (!Connected(x, y))
+                        {
+                            Link(x, y);
+                            g[u, v] = g[v, u] = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }

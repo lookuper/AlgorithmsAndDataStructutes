@@ -438,14 +438,18 @@ namespace Host
             //ac.Build();
 
             // Kd-Tree
-            var comparer = Comparer<int>.Default;
-            var data = new[]
-            {
-                new KeyValuePair<Key<int>, int>(new Key<int>(new[] {1,2 }),1),
-                new KeyValuePair<Key<int>, int>(new Key<int>(new[] {3,4 }),2),
-            };
-            var kdTree = KdTree<int, int>.Build(comparer, data);
-            var res = kdTree.Search(data.First().Key, data.Last().Key);
+            //var comparer = Comparer<int>.Default;
+            //var data = new[]
+            //{
+            //    new KeyValuePair<Key<int>, int>(new Key<int>(new[] {1,2 }),1),
+            //    new KeyValuePair<Key<int>, int>(new Key<int>(new[] {3,4 }),2),
+            //};
+            //var kdTree = KdTree<int, int>.Build(comparer, data);
+            //var res = kdTree.Search(data.First().Key, data.Last().Key);
+
+            // LinkCut Tree
+            var lcTree = new LinkCutTree();
+            LinkCutTree.Start();
     }
     }
 }
