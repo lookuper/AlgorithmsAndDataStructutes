@@ -86,7 +86,87 @@ namespace Host.DS
 
         private int MatchingConsecutiveCharacters(string word, Node curNode)
         {
-            throw new NotImplementedException();
+            int matches = 0;
+            int minLengt = 0;
+
+            if (curNode.Label.Length >= word.Length)
+            {
+                minLengt = word.Length;
+            } else if (curNode.Label.Length < word.Length)
+            {
+                minLengt = curNode.Label.Length;
+            }
+
+            if (minLengt > 0)
+            {
+                for (int i = 0; i < minLengt; i++)
+                {
+                    if (word[i] == curNode.Label[i])
+                        matches++;
+                    else
+                        break;
+                }
+            }
+
+            return matches;
+        }
+
+        public bool Lookup(string word)
+        {
+            return LookupRec(word, root);
+        }
+
+        private bool LookupRec(string wordPart, Node curNode)
+        {
+            var matches = MatchingConsecutiveCharacters(wordPart, curNode);
+
+            if (matches == 0 || curNode == root || (matches > 0 && matches < wordPart.Length && matches >= curNode.Label.Length))
+            {
+                var newLabel = wordPart.Substring(matches, wordPart.Length - matches);
+                foreach (var child in curNode.SubNodes)
+                {
+                    if (child.Label.StartsWith(newLabel[0].ToString()))
+                        return LookupRec(newLabel, child);
+                }
+
+                return false;
+            }
+            else if (matches == curNode.Label.Length)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public void Delete(string label)
+        {
+            DeleteRec(label, root);
+        }
+
+        private void DeleteRec(string wordPart, Node curNode)
+        {
+            var matches = MatchingConsecutiveCharacters(wordPart, curNode);
+
+            if (matches == 0 || curNode == root || (matches > 0 && matches < wordPart.Length && matches >= curNode.Label.Length))
+            {
+                var newLabel = wordPart.Substring(matches, wordPart.Length - matches);
+                foreach (var child in curNode.SubNodes)
+                {
+                    if (child.Label.StartsWith(newLabel[0].ToString()))
+                    {
+                        if (newLabel == child.Label)
+                        {
+                            if (child.SubNodes.Count == 0)
+                            {
+                                curNode.SubNodes.Remove(child);
+                                return;
+                            }
+                        }
+
+                        DeleteRec(newLabel, child);
+                    }
+                }
+            }
         }
     }
 }

@@ -448,8 +448,13 @@ namespace Host
             //var res = kdTree.Search(data.First().Key, data.Last().Key);
 
             // LinkCut Tree
-            var lcTree = new LinkCutTree();
-            LinkCutTree.Start();
+            //var lcTree = new LinkCutTree();
+            //LinkCutTree.Start();
+
+            // Radix Tree
+            var radixTree = new RadixTree();
+            radixTree.Insert("banana");
+            radixTree.Insert("bananaBomb");
     }
     }
 }
