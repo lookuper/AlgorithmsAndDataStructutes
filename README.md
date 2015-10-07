@@ -1,5 +1,22 @@
 ### Few interesting algorithms and data structutes that some companies asked on interview.
 ===========================
+##### Data Structures:
+* AVL Tree
+* Binary Heap
+* Binary Indexed Tree
+* Huffman Tree
+* Kd Tree
+* Link Cut Tree
+* Radix Tree
+* Red-Black Tree
+* Segment Tree
+* Sparse Matrix
+* Suffix Array
+* Suffix Tree
+* Ternary Tree
+* Treap
+* Trie
+
 ##### Generic Algorithms:
 * calculate angle between hour and minute hand
 * check if rectangles overlap
