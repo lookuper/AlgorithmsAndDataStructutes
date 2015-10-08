@@ -25,6 +25,8 @@
 * count how much digit 1 appears in number sequence
 * find probability of dice points
 * N-petrol bank problem
+* Aho-Corasik
+* Union Find
 
 ##### Strings:
 * find first non repeating character in string
